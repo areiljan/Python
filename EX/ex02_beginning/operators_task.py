@@ -18,17 +18,17 @@ print(e*f)
 """Divide g by h. Print the result."""
 g = int(input("Enter the value for g:"))
 h = int(input("Enter the value for h:"))
-print(g/f)
+print(g/h)
 
 """Divide i by j. Print the remainder. Use an arithmetic operator."""
 i = int(input("Enter the value for i:"))
 j = int(input("Enter the value for j:"))
-print(i%j)
+print(i % j)
 
 """Divide k by L. Print out the floor value. Use an arithmetic operator."""
 k = int(input("Enter the value for k:"))
 L = int(input("Enter the value for L:"))
-print(k//L)
+print(k // L)
 
 """Calculate m raised to the power of n. Print out the result."""
 m = int(input("Enter the value for m:"))

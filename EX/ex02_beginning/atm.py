@@ -13,24 +13,24 @@ amount = int(input("Enter a sum: "))
 banknotes = 0
 #
 if amount % 100 > 0:
-    sajalised = amount//100
-    amount -= sajalised*100
+    sajalised = amount // 100
+    amount -= sajalised * 100
     banknotes += sajalised
 if amount % 50 > 0:
-    viiekumnelised = amount//50
-    amount -= viiekumnelised*50
+    viiekumnelised = amount // 50
+    amount -= viiekumnelised * 50
     banknotes += viiekumnelised
 if amount % 20 > 0:
     kahekumnelised = amount // 20
-    amount -= kahekumnelised*20
+    amount -= kahekumnelised * 20
     banknotes += kahekumnelised
 if amount % 10 > 0:
     kumnelised = amount // 10
-    amount -= kumnelised*10
+    amount -= kumnelised * 10
     banknotes += kumnelised
 if amount % 5 > 0:
     viielised = amount // 5
-    amount -= viielised*10
+    amount -= viielised * 10
     banknotes += viielised
 else:
     uhelised = amount

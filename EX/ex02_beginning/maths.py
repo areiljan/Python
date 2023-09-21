@@ -101,11 +101,8 @@ output
 """
 ects = int(input("Enter the amount of ECTS: "))
 weeks = int(input("Enter the number of weeks: "))
-if weeks > 0:
-    if (weeks * 168 ) > (ects * 26):
-        tulemus = ects * 26 // weeks
-    else:
-        tulemus = -1
+
+if weeks > 0 and (weeks * 168) > (ects * 26):
+    print(int(ects * 26 / weeks))
 else:
-    tulemus = -1
-print(tulemus)
+    print(-1)

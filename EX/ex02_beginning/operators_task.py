@@ -8,17 +8,17 @@ print(a + b)
 """ Subtract d from c. Print out the result."""
 c = int(input("Enter the value for c:"))
 d = int(input("Enter the value for d:"))
-print(c-d)
+print(c - d)
 
 """ Multiply e by f. Print the result."""
 e = int(input("Enter the value for e:"))
 f = int(input("Enter the value for f:"))
-print(e*f)
+print(e * f)
 
 """Divide g by h. Print the result."""
 g = int(input("Enter the value for g:"))
 h = int(input("Enter the value for h:"))
-print(g/h)
+print(g / h)
 
 """Divide i by j. Print the remainder. Use an arithmetic operator."""
 i = int(input("Enter the value for i:"))

@@ -28,7 +28,7 @@ def encode(message: str, shift: int) -> str:
     for a in message:
         if a.isalpha():
             order = ord(a) + shift
-            if order > ord('z'): 'Teeb tähestikule ringi peale'
+            if order > ord('z'): #teeb tähestikule ringi peale
                 order -= 26
             encoded_message += chr(order)
         else:

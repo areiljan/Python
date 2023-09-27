@@ -1,3 +1,5 @@
+"""Control number."""
+
 
 def control_number(encrypted_string: str) -> bool:
     """

@@ -13,8 +13,6 @@ def secret_letter(letter: str) -> bool:
     :param letter: secret letter
     :return: validation
     """
-
-
     uppercaseletters = 0
     lowercaseletters = 0
     sumofdigits = 0
@@ -33,8 +31,6 @@ def secret_letter(letter: str) -> bool:
         return True
     else:
         return False
-
-
 
 if __name__ == '__main__':
     print(secret_letter("sOMEteSTLETTer8"))  # True

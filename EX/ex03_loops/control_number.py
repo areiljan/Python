@@ -1,3 +1,4 @@
+
 def control_number(encrypted_string: str) -> bool:
     """
     Given encrypted string that has a control number in the end of it, return True if correct, else False.

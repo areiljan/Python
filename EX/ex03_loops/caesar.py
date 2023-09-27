@@ -28,13 +28,12 @@ def encode(message: str, shift: int) -> str:
     for a in message:
         if a.isalpha():
             order = ord(a) + shift
-            if order > ord('z'): #teeb tähestikule ringi peale
+            if order > ord('z'):  # teeb tähestikule ringi peale
                 order -= 26
             encoded_message += chr(order)
         else:
             encoded_message += a
-    return(encoded_message)
-
+    return encoded_message
 
 if __name__ == '__main__':
     print(encode("i like turtles", 6))  # -> o roqk zaxzrky

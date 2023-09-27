@@ -24,8 +24,10 @@ def secret_letter(letter: str) -> bool:
             uppercaseletters += 1
         elif a.islower():
             lowercaseletters += 1
-        else:
+        elif a.isnumeric():
             sumofdigits += int(a)
+        else:
+            continue
 
     if uppercaseletters > lowercaseletters and sumofdigits <= uppercaseletters and sumofdigits >= lowercaseletters:
         return True

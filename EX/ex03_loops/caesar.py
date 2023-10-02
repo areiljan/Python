@@ -27,6 +27,7 @@ def encode(message: str, shift: int) -> str:
     encoded_message = ""
     for a in message:
         if a.isalpha():
+            shift = shift % 26
             order = ord(a) + shift
             if order > ord('z'):  # teeb tähestikule ringi peale
                 order -= 26
@@ -41,4 +42,4 @@ if __name__ == '__main__':
     print(encode("example", 1))  # -> fybnqmf
     print(encode("don't change", 0))  # -> don't change
     print(encode('the quick brown fox jumps over the lazy dog.', 7))  # -> aol xbpjr iyvdu mve qbtwz vcly aol shgf kvn.
-    print(encode('najzeia owwnaha owqjw', 7))
+    print(encode('rendime saarele sauna', 100 ))

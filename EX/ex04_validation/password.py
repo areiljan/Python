@@ -86,9 +86,9 @@ def is_different_from_old_password(old_pass: str, new_pass: str) -> bool:
     """
     n = 0
     if len(old_pass) % 2 == 0:
-        half_length = ((len(old_pass)) // 2)
-    else:
         half_length = (((len(old_pass)) + 2) // 2)
+    else:
+        half_length = ((len(old_pass)) // 2)
     while n < half_length:
         half = new_pass[n:int(len(new_pass) / 2 + n)].lower()
         if half in old_pass.lower() or half[::-1] in old_pass.lower():

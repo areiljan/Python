@@ -1,10 +1,13 @@
 """Email validation."""
 
+
 def has_at_symbol(email):
     if "@" in email:
         return True
     else:
         return False
+
+
 def is_valid_username(email):
     at_count = 0
     for a in email:
@@ -19,9 +22,11 @@ def is_valid_username(email):
             break
     return True
 
+
 def find_domain(email):
     name_list = email.rsplit("@", 1)
     return(name_list[1])
+
 
 def is_valid_domain(email):
     dot_count = 0
@@ -42,11 +47,14 @@ def is_valid_domain(email):
 
     return True
 
+
 def is_valid_email_address(email):
     return has_at_symbol(email) and is_valid_username(email) and find_domain(email) and is_valid_domain(email)
 
+
 def create_email_address(username, domain_name):
     print("money")
+
 
 if __name__ == '__main__':
     print("Email has the @ symbol:")

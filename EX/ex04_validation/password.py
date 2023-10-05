@@ -1,5 +1,6 @@
 """Password validation."""
 
+
 def is_correct_length(password: str) -> bool:
     """
     Check if the password's length is within the valid range.
@@ -9,8 +10,8 @@ def is_correct_length(password: str) -> bool:
     :return: True if the password's length is within the valid range, False otherwise
     """
     if 7 < len(password) < 65:
-        return(True)
-    return(False)
+        return True
+    return False
 
 
 def includes_uppercase(password: str) -> bool:
@@ -25,7 +26,6 @@ def includes_uppercase(password: str) -> bool:
             return True
             break
     return False
-
 
 
 def includes_lowercase(password: str) -> bool:
@@ -68,7 +68,6 @@ def includes_number(password: str) -> bool:
             return True
             break
     return False
-
 
 
 def is_different_from_old_password(old_pass: str, new_pass: str) -> bool:
@@ -127,7 +126,6 @@ def is_name_in_password(password: str, name: str) -> bool:
     return False
 
 
-
 def is_birthday_in_password(password: str, birthdate: str) -> bool:
     """
     Check if the password contains the birthday of the account owner.
@@ -149,7 +147,6 @@ def is_birthday_in_password(password: str, birthdate: str) -> bool:
     :param birthdate: Birthday of the account owner, format is dd.mm.yyyy
     :return: True if the birthday is present in the password, False otherwise
     """
-    tulemus = []
     split = birthdate.split(".")
     dd = split[0]
     mm = split[1]
@@ -176,7 +173,6 @@ def is_password_valid(new_password: str, old_password: str, name: str, birthdate
     return (is_correct_length(new_password) and includes_uppercase(new_password) and includes_lowercase(new_password) and includes_special(new_password)
             and includes_number(new_password) and is_different_from_old_password(old_password, new_password) and not is_name_in_password(new_password, name)
             and not is_birthday_in_password(new_password, birthdate))
-
 
 
 if __name__ == '__main__':

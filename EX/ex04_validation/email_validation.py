@@ -46,10 +46,10 @@ def is_valid_domain(email):
             return False
             break
 
-    if len(name_list_dots) >= 2:
+    if len(name_list_dots) != 2:
         return False
 
-    if 3 < len(name_list_dots[0]) or len(name_list_dots[0]) > 10 or len(name_list_dots[1]) < 2 or len(name_list_dots[1]) > 5:
+    if 3 > len(name_list_dots[0]) or len(name_list_dots[0]) > 10 or len(name_list_dots[1]) < 2 or len(name_list_dots[1]) > 5:
         return False
 
     return True
@@ -62,9 +62,13 @@ def is_valid_email_address(email):
 
 
 def create_email_address(username, domain_name):
-    """Loob korrektse meiliaadressi"""
+    """Loob korrektse meiliaadressi ja kontrollib seda"""
+    email = domain_name + "@" + username
+    if has_at_symbol(email) and is_valid_username(email) and find_domain(email) and is_valid_domain(email):
+        return(email)
+    else:
+        return("Cannot create a valid email address using the given parameters!")
 
-    print("money")
 
 
 if __name__ == '__main__':

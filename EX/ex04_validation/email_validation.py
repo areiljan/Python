@@ -45,8 +45,8 @@ def is_valid_domain(email):
     if len(name_list_dots) != 2:
         return False
 
-    if (3 > len(name_list_dots[0]) or len(name_list_dots[0]) > 10 or
-            len(name_list_dots[1]) < 2 or len(name_list_dots[1]) > 5):
+    if (3 > len(name_list_dots[0]) or len(name_list_dots[0]) > 10
+            or len(name_list_dots[1]) < 2 or len(name_list_dots[1]) > 5):
         return False
 
     return True
@@ -54,7 +54,6 @@ def is_valid_domain(email):
 
 def is_valid_email_address(email):
     """Kontrollib kas emaili aadress vastab nõuetele."""
-
     return has_at_symbol(email) and is_valid_username(email) and find_domain(email) and is_valid_domain(email)
 
 

@@ -2,7 +2,7 @@
 
 
 def has_at_symbol(email):
-    """Kontrollib kas emailis on at sümbol"""
+    """Kontrollib kas emailis on at sümbol."""
     if "@" in email:
         return True
     else:
@@ -10,7 +10,7 @@ def has_at_symbol(email):
 
 
 def is_valid_username(email):
-    """Kontrollib kas email vastab nõutele"""
+    """Kontrollib kas email vastab nõutele."""
     at_count = 0
     for a in email:
         if a == "@":
@@ -26,13 +26,13 @@ def is_valid_username(email):
 
 
 def find_domain(email):
-    """Leiab domeeni"""
+    """Leiab domeeni."""
     name_list = email.rsplit("@", 1)
     return name_list[1]
 
 
 def is_valid_domain(email):
-    """Kontrollib kas leitud domeen vastab nõuetele"""
+    """Kontrollib kas leitud domeen vastab nõuetele."""
     name_list = email.rsplit("@", 1)
     name_list_dots = name_list[1].split(".")
     for a in name_list_dots:
@@ -53,13 +53,13 @@ def is_valid_domain(email):
 
 
 def is_valid_email_address(email):
-    """Kontrollib kas emaili aadress vastab nõuetele"""
+    """Kontrollib kas emaili aadress vastab nõuetele."""
 
     return has_at_symbol(email) and is_valid_username(email) and find_domain(email) and is_valid_domain(email)
 
 
 def create_email_address(username, domain_name):
-    """Loob korrektse meiliaadressi ja kontrollib seda"""
+    """Loob korrektse meiliaadressi ja kontrollib seda."""
     email = domain_name + "@" + username
     if has_at_symbol(email) and is_valid_username(email) and find_domain(email) and is_valid_domain(email):
         return email

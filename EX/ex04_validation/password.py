@@ -86,7 +86,10 @@ def is_different_from_old_password(old_pass: str, new_pass: str) -> bool:
     min_pass = min(new_pass, old_pass)
     half_length = ((len(min_pass)) // 2)
     while n <= half_length:
-        half = new_pass[n:int(len(new_pass) / 2 + n)].lower()
+        if len(new_pass) % 2 == 0:
+            half = new_pass[n:int(len(new_pass) / 2 + n)].lower()
+        else:
+            half = new_pass[n:int(len(new_pass) / 2 + n + 1)].lower()
         if half in old_pass.lower() or half[::-1] in old_pass.lower():
             return False
             break
@@ -203,8 +206,8 @@ if __name__ == '__main__':
     print(is_different_from_old_password("seinav2rv", "seinakapp"))  # -> False
     print(is_different_from_old_password("merineitsi99", "mereneitsi11"))  # -> False
     print(is_different_from_old_password("eva1970", "0791ave"))  # -> False
-    print(is_different_from_old_password("abcdef", "xyzabc")) # False
-    print(is_different_from_old_password("abxyab", "abcxy")) # True
+    print(is_different_from_old_password("abcdef", "xyzabc"))  # False
+    print(is_different_from_old_password("abxyab", "abcxy"))  # True
 
     print("\nPassword has your name:")
     print(is_name_in_password("ddccwemelani", "Melani Mets"))  # -> True

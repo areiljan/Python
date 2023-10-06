@@ -88,4 +88,15 @@ def max_duplicate(nums: list) -> int | None:
     :param nums: List of integers
     :return: Maximum element with duplicate. None if no duplicate found.
     """
-    pass
+    new_list = []
+    duplicate_list = []
+    for a in nums:
+        if a in new_list:
+            duplicate_list.append(a)
+        new_list.append(a)
+
+    if duplicate_list:
+        return(max(duplicate_list))
+    else:
+        return None
+

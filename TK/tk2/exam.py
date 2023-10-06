@@ -28,10 +28,10 @@ def lucky_guess(arv: int):
     elif -6 <= arv <= 121 and arv % 13 == 0:
         return True
     else:
-        for a in str(int):
+        for a in str(arv):
             if a == "5" or a == "6":
-                bool = False
-        if bool and arv < 0:
+                fiveorsixinnumber = False
+        if fiveorsixinnumber and arv < 0:
             return True
     return False
 

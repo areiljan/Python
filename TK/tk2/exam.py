@@ -51,6 +51,7 @@ def without_end(s: str) -> str:
     """
     if len(s) >= 2:
         s = s.strip(s[0])
+        s = s.strip(s[len(s) - 1])
         return s
 
 

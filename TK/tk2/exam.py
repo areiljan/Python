@@ -50,9 +50,7 @@ def without_end(s: str) -> str:
     :return: String without first and last char.
     """
     if len(s) >= 2:
-        s = s.strip(s[0])
-        s = s.strip(s[len(s) - 1])
-        return s
+        return s[1:-1]
 
 
 def non_decreasing_list(nums: list) -> bool:

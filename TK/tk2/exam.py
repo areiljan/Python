@@ -69,9 +69,7 @@ def non_decreasing_list(nums: list) -> bool:
     """
     index = 1
     while index < len(nums):
-        if nums[index] > nums[index - 1]:
-            continue
-        else:
+        if nums[index] < nums[index - 1]:
             return False
         index += 1
     return True

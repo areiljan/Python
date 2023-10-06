@@ -67,13 +67,13 @@ def non_decreasing_list(nums: list) -> bool:
     :param nums:
     :return:
     """
-    index = 0
+    index = 1
     while index < len(nums):
-        index += 1
         if nums[index] > nums[index - 1]:
             continue
         else:
             return False
+        index += 1
     return True
 
 

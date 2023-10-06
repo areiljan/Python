@@ -21,7 +21,7 @@ def middle_value(arv1 :int, arv2: int, arv3: int):
 
 def lucky_guess(arv: int):
     """Arvamismäng"""
-    bool = True
+    fiveorsixinnumber = True
 
     if arv == 1 or arv == 3 or arv == 7:
         return True

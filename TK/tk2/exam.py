@@ -1,8 +1,8 @@
-"""Tunnikontroll 2"""
+"""Tunnikontroll 2 """
 
 
-def middle_value(arv1 :int, arv2: int, arv3: int):
-    """Leiab keskmise väärtuse"""
+def middle_value(arv1: int, arv2: int, arv3: int):
+    """Leiab keskmise väärtuse """
     if min(arv1, arv2, arv3) == arv1 and max(arv1, arv2, arv3) == arv3:
         return arv2
     elif min(arv1, arv2, arv3) == arv2 and max(arv1, arv2, arv3) == arv1:
@@ -20,7 +20,7 @@ def middle_value(arv1 :int, arv2: int, arv3: int):
 
 
 def lucky_guess(arv: int):
-    """Arvamismäng"""
+    """Arvamismäng """
     fiveorsixinnumber = True
 
     if arv == 1 or arv == 3 or arv == 7:
@@ -96,7 +96,6 @@ def max_duplicate(nums: list) -> int | None:
         new_list.append(a)
 
     if duplicate_list:
-        return(max(duplicate_list))
+        return (max(duplicate_list))
     else:
         return None
-

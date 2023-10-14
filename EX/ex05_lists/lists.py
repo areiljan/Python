@@ -10,7 +10,10 @@ def list_of_phones(all_phones: str) -> list:
 
     "Google Pixel,Honor Magic5,Google Pixel" => ["Google Pixel', 'Honor Magic5', 'Google Pixel"]
     """
-    phones_list = all_phones.split(",")
+    if all_phones == "":
+        phones_list = list("")
+    else:
+        phones_list = all_phones.split(",")
     return phones_list
 
 
@@ -26,8 +29,11 @@ def phone_brands(all_phones: str) -> list:
     brands_list = []
     for element in phones_list:
         brand = element.split(" ")
-        if brand[0] not in brands_list:
-            brands_list.append(brand[0])
+        if len(brand) > 1:
+            if brand[0] not in brands_list:
+                brands_list.append(brand[0])
+        else:
+            brands_list.append(brand)
     return brands_list
 
 
@@ -43,10 +49,16 @@ def phone_models(all_phones: str) -> list:
     models_list = []
     for element in phones_list:
         model = element.split(" ")
-        if element not in models_list:
-            models_list.append(model[1])
+        if len(model) > 1:
+            if model[1] not in models_list:
+                models_list.append(model[1])
+        else:
+            if model[0] not in models_list:
+                models_list.append(model[0])
     return models_list
 
 print(list_of_phones('Google Pixel,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11'))
 print(phone_brands('Google Pixel,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11'))
-print(phone_models('Google Pixel,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11'))
+print(phone_models('Google Pixel2,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11'))
+print(list_of_phones(""))
+print(phone_models('one,one,one,one'))

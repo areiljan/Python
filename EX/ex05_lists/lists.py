@@ -42,8 +42,12 @@ def phone_models(all_phones: str) -> list:
     phones_list = list_of_phones(all_phones)
     models_list = []
     for element in phones_list:
+        model = element.split(" ")
         if element not in models_list:
-            models_list.append(element)
+            models_list.append(model[1])
     return models_list
 
+print(list_of_phones('Google Pixel,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11'))
+print(phone_brands('Google Pixel,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11'))
+print(phone_models('Google Pixel,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11'))
 

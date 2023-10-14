@@ -58,8 +58,10 @@ def phone_models(all_phones: str) -> list:
     return models_list
 
 
-def search_by_brand(all_phones: str, keyword_brand:str) ->list:
-    '''
+def search_by_brand(all_phones: str, keyword_brand: str) -> list:
+    """
+    Otsib telefone brändi järgi.
+
     Parameetrid: telefonide nimekiri sõnena (nagu eelmises osas),
     otsitav tootja sõnena. Funktsioon tagastab listi telefonidest (tootja ja mudel).
     Telefonide nimekiri sõnena on täpselt samas vormingus nagu eelmistes osades.
@@ -69,7 +71,7 @@ def search_by_brand(all_phones: str, keyword_brand:str) ->list:
     Tulemuses on telefonid originaalkujul.
     :param keyword_brand:
     :return:
-    '''
+    """
     phones_list = list_of_phones(all_phones)
     matching_phones_list = []
     for phone in phones_list:
@@ -78,9 +80,10 @@ def search_by_brand(all_phones: str, keyword_brand:str) ->list:
     return matching_phones_list
 
 
-def search_by_model(all_phones: str, keyword_model:str) ->list:
-    '''
+def search_by_model(all_phones: str, keyword_model: str) -> list:
+    """
     Lisa funktsioon search_by_model.
+
     Parameetrid: telefonide nimekiri sõnena (nagu eelmises osas),
     otsitav mudel sõnena. Funktsioon tagastab listi telefonidest (tootja ja mudel).
     Otsing on tõstutundetu ning otsib täpset vastet mudelite sõnade seast.
@@ -95,7 +98,7 @@ def search_by_model(all_phones: str, keyword_model:str) ->list:
     kus otsitav sõne võrdub täpselt ühe mudeli sõnaga.
     Mudeli otsingut võib tõlgendada ka nii: Kas telefoni mudelite sõnades leidub
     täpselt selline otsitav sõna (case-insensitive).
-    '''
+    """
     phones_list = list_of_phones(all_phones)
     model_list = []
     matching_phones_list = []
@@ -107,9 +110,10 @@ def search_by_model(all_phones: str, keyword_model:str) ->list:
                 matching_phones_list.append(phone)
     return matching_phones_list
 
+
 print(list_of_phones('Google Pixel,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11'))
 print(phone_brands('Google Pixel,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11'))
 print(phone_models('Google Pro Pixel2,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11'))
 print(list_of_phones(""))
 print(phone_models('one,one,one,one'))
-print(search_by_model('Google Pro Pixel2,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11','Pixel2'))
+print(search_by_model('Google Pro Pixel2,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11', 'Pixel2'))

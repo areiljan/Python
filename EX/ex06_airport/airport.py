@@ -40,7 +40,11 @@ def sort_dict_values(dictionary: dict) -> dict:
     Return a dictionary where all the values are in ascending order.
     The order of the keys is not important.
     """
-    pass
+    sorted_dict = {}
+    for key, values in dictionary.items():
+        sorted_values = sorted(values)
+        sorted_dict[key] = sorted_values
+    return sorted_dict
 
 
 def flights_to_destination(flights: list, destination: str) -> list:

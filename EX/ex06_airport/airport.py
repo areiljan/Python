@@ -24,7 +24,10 @@ def destinations_and_times(flights: list) -> dict:
         parts = a.split(",")
         destination = parts[0]
         time = parts[1]
-        flight_data[destination] = time
+        if destination in flight_data:
+            flight_data[destination].append(time)
+        else:
+            flight_data[destination] = [time]
     return flight_data
 
 

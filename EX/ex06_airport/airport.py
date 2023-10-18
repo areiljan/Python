@@ -91,7 +91,7 @@ def flights_schedule(flights: list) -> dict:
         destination = parts[0]
         time = parts[1]
         flight_number = parts[3]
-        value = [destination, flight_number]
+        value = (destination, flight_number)
         if time in flight_data:
             flight_data[time].append(value)
         else:

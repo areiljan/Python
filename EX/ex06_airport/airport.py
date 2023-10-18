@@ -61,7 +61,13 @@ def flights_to_destination(flights: list, destination: str) -> list:
     :param destination: chosen destination for which we want to know the departure times.
     :return: list of departures (sorted in ascending order) for that destination.
     """
-    pass
+    matching_flights = []
+    flight_dict = sort_dict_values(destinations_and_times(flights))
+    for key, value in flight_dict.items():
+        if destination == key:
+            matching_flights += value
+    return matching_flights
+
 
 
 def flights_schedule(flights: list) -> dict:

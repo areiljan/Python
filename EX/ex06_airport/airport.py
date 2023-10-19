@@ -69,7 +69,6 @@ def flights_to_destination(flights: list, destination: str) -> list:
     return matching_flights
 
 
-
 def flights_schedule(flights: list) -> dict:
     """
     Return flight schedule by departure times.
@@ -134,8 +133,7 @@ def airlines_operating_today(schedule: dict, airline_names: dict) -> set:
     unique_airlines = set()
     flight_numbers = []
     key_list = airline_names.keys()
-    destination_and_number = schedule.values()
-    for a in destination_and_number:
+    for a in schedule.values():
         flight_numbers.append(a[1][:3])
 
     for a in flight_numbers:
@@ -143,7 +141,6 @@ def airlines_operating_today(schedule: dict, airline_names: dict) -> set:
             unique_airlines.add(airline_names[a])
 
     return unique_airlines
-
 
 
 def destinations_by_airline(schedule: dict, airline_names: dict) -> dict:
@@ -161,10 +158,7 @@ def destinations_by_airline(schedule: dict, airline_names: dict) -> dict:
     :return: Dictionary of airline names to sets of destinations.
     """
     airlines_and_destinations = {}
-    unique_destinations = set()
-    destination_and_number = schedule.values()
     for a in schedule.values():
-        flight_code = a[1]
         destination = a[0]
         flight_number = a[1][:3]
         airline_name = airline_names[flight_number]
@@ -172,7 +166,6 @@ def destinations_by_airline(schedule: dict, airline_names: dict) -> dict:
             airlines_and_destinations[airline_name] = set()
         airlines_and_destinations[airline_name].add(destination)
     return airlines_and_destinations
-
 
 
 if __name__ == '__main__':

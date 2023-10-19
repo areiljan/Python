@@ -131,7 +131,15 @@ def airlines_operating_today(schedule: dict, airline_names: dict) -> set:
     :param airline_names: Dictionary containing airline codes and corresponding names.
     :return: Set of unique airline names operating today.
     """
-    pass
+    unique_airlines = set()
+    for a in flights:
+        parts = a.split(",")
+        flight_number = parts[3][0:3]
+        key_list = airline_names.keys()
+        if flight_number in key_list:
+            unique_airlines.add(airline_names[flight_number])
+    return unique_airlines
+
 
 
 def destinations_by_airline(schedule: dict, airline_names: dict) -> dict:

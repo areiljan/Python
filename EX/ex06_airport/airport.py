@@ -132,12 +132,16 @@ def airlines_operating_today(schedule: dict, airline_names: dict) -> set:
     :return: Set of unique airline names operating today.
     """
     unique_airlines = set()
-    for a in flights:
-        parts = a.split(",")
-        flight_number = parts[3][0:3]
-        key_list = airline_names.keys()
-        if flight_number in key_list:
-            unique_airlines.add(airline_names[flight_number])
+    flight_numbers = []
+    key_list = airline_names.keys()
+    destination_and_number = schedule.values()
+    for a in destination_and_number:
+        flight_numbers.append(a[1][:3])
+
+    for a in flight_numbers:
+        if a in key_list:
+            unique_airlines.add(airline_names[a])
+
     return unique_airlines
 
 

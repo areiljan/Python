@@ -84,10 +84,9 @@ def find_words_from_sentences_only(text: str) -> list:
     """
     words = []
     for a in find_sentences(text):
-        words += find_words(a)
+        words += find_words_from_sentence(a)
 
     return words
-
 
 
 def find_years(text: str) -> list:

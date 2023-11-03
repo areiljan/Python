@@ -20,7 +20,6 @@ def find_words(text: str) -> list:
     return re.findall(pattern, text)
 
 
-
 def find_words_with_vowels(text: str) -> list:
     """
     Given string text, return all the words in that string that start with a vowel.

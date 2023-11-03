@@ -20,6 +20,7 @@ def find_words(text: str) -> list:
     return re.findall(pattern, text)
 
 
+
 def find_words_with_vowels(text: str) -> list:
     """
     Given string text, return all the words in that string that start with a vowel.
@@ -104,7 +105,7 @@ def find_years(text: str) -> list:
     :param text: given string to find years from
     :return: list of years (integers) found in given string
     """
-    pattern = r'(?<=\D)\d{4}(?=\D)'
+    pattern = r'(?<!\d)\d{4}(?!\d)'
     years = "i" + text
     years = re.findall(pattern, years)
     new_years = []
@@ -113,7 +114,6 @@ def find_years(text: str) -> list:
         new_years.append(a)
 
     return new_years
-
 
 
 def find_phone_numbers(text: str) -> dict:
@@ -137,7 +137,6 @@ def find_phone_numbers(text: str) -> dict:
     phone_pattern = r'(\+\d{3})?\s?(\d{7,8})'
     matches = re.findall(phone_pattern, text)
     phone_numbers = {}
-    list_of_numbers = []
     for match in matches:
         area_code = match[0]
         number = match[1]

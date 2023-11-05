@@ -67,6 +67,8 @@ def parse(row: str) -> tuple:
         row = row.replace(address_match.group(0), '').strip()
     else:
         address = None
+    if address == '':
+        address = None
 
     return (first_name, family_name, id, phone, dob, address)
 

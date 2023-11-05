@@ -44,7 +44,7 @@ def parse(row: str) -> tuple:
     else:
         id_number = None
 
-    phone_pattern = r'(\+\d{3}.\d{8})'
+    phone_pattern = r'(\+\d{3} ?\d{8})'
     phone_match = re.match(phone_pattern, row)
     if phone_match:
         phone = phone_match.group(1)

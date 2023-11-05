@@ -19,7 +19,6 @@ def parse(row: str) -> tuple:
     :param row: given string to find values from
     :return: tuple of values found in given string
     """
-
     first_name_pattern = r'([A-Z][a-z]+)'
     first_name_match = re.match(first_name_pattern, row)
     if first_name_match:
@@ -28,7 +27,7 @@ def parse(row: str) -> tuple:
     else:
         first_name = None
 
-    family_name_pattern = r'([A-Z][a-z]+)'
+
     family_name_match = re.match(first_name_pattern, row)
     if family_name_match:
         family_name = family_name_match.group(1)
@@ -71,6 +70,7 @@ def parse(row: str) -> tuple:
         address = None
 
     return (first_name, family_name, id_number, phone, dob, address)
+
 
 if __name__ == '__main__':
     print(parse('PriitPann39712047623+372 5688736402-12-1998Oja 18-2,Pärnumaa,Are'))

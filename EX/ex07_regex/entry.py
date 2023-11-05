@@ -39,10 +39,10 @@ def parse(row: str) -> tuple:
     id_pattern = r'(\d{11})'
     id_match = re.match(id_pattern, row)
     if id_match:
-        id = id_match.group(1)
+        id_number = id_match.group(1)
         row = row.replace(id_match.group(0), '').strip()
     else:
-        id = None
+        id_number = None
 
     phone_pattern = r'(\+\d{3}.\d{8})'
     phone_match = re.match(phone_pattern, row)
@@ -70,7 +70,7 @@ def parse(row: str) -> tuple:
     if address == '':
         address = None
 
-    return (first_name, family_name, id, phone, dob, address)
+    return (first_name, family_name, id_number, phone, dob, address)
 
 if __name__ == '__main__':
     print(parse('PriitPann39712047623+372 5688736402-12-1998Oja 18-2,Pärnumaa,Are'))

@@ -27,7 +27,6 @@ def parse(row: str) -> tuple:
     else:
         first_name = None
 
-
     family_name_match = re.match(first_name_pattern, row)
     if family_name_match:
         family_name = family_name_match.group(1)

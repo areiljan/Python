@@ -159,7 +159,7 @@ def check_for_prime(num: int, i=None) -> bool:
         return False
     if i is None:
         i = 2
-    if i*i > num:
+    if i * i > num:
         return True
     if num % i == 0:
         return False
@@ -190,7 +190,6 @@ def replace(input_string: str, char_to_replace: str, new_string: str) -> str:
     :param new_string: string of characters that will replace all occurences of 'char_to_replace'
     :return: input string with all 'char_to_replace' characters replaced with 'new_string'-s
     """
-
     if len(char_to_replace) != 1:
         return "Length of char_to_replace must be one character!"
 
@@ -311,7 +310,6 @@ def sum_squares(nested_list: list | int) -> int:
     :param nested_list: list of lists of lists of lists of lists ... and ints
     :return: sum of squares
     """
-
     if isinstance(nested_list, int):
         return nested_list ** 2
     elif isinstance(nested_list, list):

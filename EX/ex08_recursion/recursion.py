@@ -110,7 +110,7 @@ def recursive_factorial(num: int) -> int:
     :return: factorial of given number
     """
     if num == 0:
-        return 0
+        return 1
     elif num < 0:
         return -1
     else:

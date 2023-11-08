@@ -114,7 +114,7 @@ def recursive_factorial(num: int) -> int:
     elif num < 0:
         return -1
     else:
-        return num * loop_factorial(num - 1)
+        return num * recursive_factorial(num - 1)
 
 
 

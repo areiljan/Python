@@ -227,11 +227,9 @@ def fibonacci(num: int, fib_list=None) -> list | None:
     if fib_list == None:
         fib_list = [0,1]
 
-    if num <= 0:
+    if num < 0:
         return None
-    elif num == 1:
-        return [0, 1]
-    elif num == 2:
+    elif num <= 2:
         return [0, 1]
 
     fib_list = fibonacci(num - 1)

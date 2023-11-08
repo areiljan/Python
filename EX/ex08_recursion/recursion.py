@@ -18,6 +18,7 @@ def loop_reverse(string: str) -> str:
         new_string = a + new_string
     return new_string
 
+
 def recursive_reverse(string: str) -> str:
     """
     Reverse a string using recursion.
@@ -53,7 +54,6 @@ def loop_sum(num: int) -> int:
         number_sum += num
         num -= 1
     return number_sum
-
 
 
 def recursive_sum(num: int) -> int:
@@ -117,7 +117,6 @@ def recursive_factorial(num: int) -> int:
         return num * recursive_factorial(num - 1)
 
 
-
 def check_palindrome(string: str) -> bool:
     """
     Check if the input 'string' is a palindrome using recursion.
@@ -141,7 +140,6 @@ def check_palindrome(string: str) -> bool:
         return check_palindrome(string[1:-1])
     else:
         return False
-
 
 
 def check_for_prime(num: int, i=None) -> bool:
@@ -193,7 +191,6 @@ def replace(input_string: str, char_to_replace: str, new_string: str) -> str:
     :return: input string with all 'char_to_replace' characters replaced with 'new_string'-s
     """
 
-
     if len(char_to_replace) != 1:
         return "Length of char_to_replace must be one character!"
 
@@ -204,8 +201,6 @@ def replace(input_string: str, char_to_replace: str, new_string: str) -> str:
         return f"{new_string}{replace(input_string[1:], char_to_replace, new_string)}"
     elif len(input_string) >= 0:
         return f"{input_string[0]}{replace(input_string[1:], char_to_replace, new_string)}"
-
-
 
 
 def fibonacci(num: int, fib_list=None) -> list | None:
@@ -224,11 +219,8 @@ def fibonacci(num: int, fib_list=None) -> list | None:
     :param fib_list: used to pass the currently computed list on numbers
     :return: list of the first 'num' Fibonacci numbers
     """
-    if fib_list == None:
-        fib_list = [0,1]
-
     if num < 0:
-        return None
+        return fib_list
     elif num <= 2:
         return [0, 1]
 
@@ -236,7 +228,6 @@ def fibonacci(num: int, fib_list=None) -> list | None:
     next_fib = fib_list[-1] + fib_list[-2]
     fib_list.append(next_fib)
     return fib_list
-
 
 
 def x_sum_loop(nums: list, x: int) -> int:
@@ -271,6 +262,7 @@ def x_sum_loop(nums: list, x: int) -> int:
             total_sum += nums[i]
 
     return total_sum
+
 
 def x_sum_recursion(nums: list, x: int) -> int:
     """

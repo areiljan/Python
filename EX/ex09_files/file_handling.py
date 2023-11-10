@@ -193,6 +193,7 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
 
     with open(csv_output_filename, 'w', newline='') as output_file:
         output_writer = csv.writer(output_file)
+        output_writer.writerows("name, town, date\n")
         output_writer.writerows(output_data)
 
 

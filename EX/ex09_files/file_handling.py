@@ -157,4 +157,3 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
     """
     pass
 
-print(read_file_contents_to_list("doodoo.txt"))

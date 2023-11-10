@@ -184,7 +184,7 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
 
     for name in dates_data:
         date = dates_data[name]
-        town = towns_data[name]
+        town = towns_data.get(name, '')
         output_data.append([name, town, date])
 
     header = ["name", "town", "date"]

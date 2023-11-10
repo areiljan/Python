@@ -172,12 +172,12 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
     output_data = []
 
     with open(dates_filename, "r") as dates_file:
-        dates_reader = csv.reader(dates_file, delimiter=',')
+        dates_reader = csv.reader(dates_file, delimiter=':')
         for row in dates_reader:
             name, date = row
             dates_data[name] = date
     with open(towns_filename, "r") as towns_file:
-        towns_reader = csv.reader(towns_file, delimiter=',')
+        towns_reader = csv.reader(towns_file, delimiter=':')
         for row in towns_reader:
             name, town = row
             towns_data[name] = town

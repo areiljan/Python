@@ -91,8 +91,11 @@ def write_lines_to_file(filename: str, lines: list[str]) -> None:
     :return: None
     """
     with open(filename, "w", newline = "") as file:
-        for line in lines:
-            file.write(f"{line}\n")
+        for i in range(len(lines)):
+            if i + 1 < len(lines):
+                file.write(f"{lines[i]}\n")
+            else:
+                file.write(f"{lines[i]}")
 
 
 
@@ -162,3 +165,5 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
     :return: None
     """
     pass
+
+write_lines_to_file("doodoo.txt", ["Mis sul viga on?", "Midagi."])

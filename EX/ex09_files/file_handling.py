@@ -74,7 +74,8 @@ def write_contents_to_file(filename: str, contents: str) -> None:
     :param contents: The content to write to the file.
     :return: None
     """
-    pass
+    with open(filename, "w", newline = "") as file:
+        file.write(contents)
 
 
 def write_lines_to_file(filename: str, lines: list[str]) -> None:

@@ -167,7 +167,30 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
     :param csv_output_filename: The name of the CSV file to write to names, towns, and dates.
     :return: None
     """
-    pass
+    dates_data = {}
+    towns_data = {}
+    output_data = []
 
-write_lines_to_file("doodoo.txt", ["Mis sul viga on?", "Midagi."])
-write_csv_file("doodoo.csv", [["YAppa", "Yappa"],["RARARA", "KAKKAKA"]])
+    with open(dates_filename, "r") as dates_file:
+        dates_reader = csv.reader(dates_file, delimiter=',')
+        for row in dates_reader:
+            name, date = row
+            dates_data[name] = date
+    with open(towns_filename, "r") as towns_file:
+        towns_reader = csv.reader(towns_file, delimiter=',')
+        for row in towns_reader:
+            name, town = row
+            towns_data[name] = town
+
+    for name in dates_data:
+        date = dates_data[name]
+        town = towns_data[name]
+        output_data.append([name, town, date])
+    for name in towns_data:
+        if name not in dates_data:
+            town = towns_data[name]
+            output_data.append([name, town, ''])
+
+    with open(csv_output_filename, 'w', newline='') as output_file:
+        output_writer = csv.writer(output_file)
+        output_writer.writerows(output_data)

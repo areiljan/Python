@@ -190,7 +190,7 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
         if name not in dates_data:
             town = towns_data[name]
             output_data.append([name, town, ''])
-    output_data += "name, town, date\n" + output_data
+    output_data += "name, town, date\n"
     with open(csv_output_filename, 'w', newline='') as output_file:
         output_writer = csv.writer(output_file)
         output_writer.writerows(output_data)

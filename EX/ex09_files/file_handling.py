@@ -193,7 +193,6 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
         output_writer.writerow(header)
         output_writer.writerows(output_data)
 
-merge_dates_and_towns_into_csv("dates.csv", "towns.csv", "doodoo.csv")
 
 def read_csv_file_into_list_of_dicts(filename: str) -> list[dict[str, str]]:
     """

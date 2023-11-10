@@ -181,19 +181,15 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
         for row in towns_reader:
             name, town = row
             towns_data[name] = town
-
+    header = ["name, town, date\n"]
     for name in dates_data:
         date = dates_data[name]
         town = towns_data[name]
-        output_data.append([name, town, date])
-    for name in towns_data:
-        if name not in dates_data:
-            town = towns_data[name]
-            output_data.append([name, town, ''])
-    output_data = [["name, town, date\n"]] + output_data
+        header.append([name, town, date])
+
     with open(csv_output_filename, 'w', newline='') as output_file:
         output_writer = csv.writer(output_file)
-        output_writer.writerows(output_data)
+        output_writer.writerows(header)
 
 
 def read_csv_file_into_list_of_dicts(filename: str) -> list[dict[str, str]]:

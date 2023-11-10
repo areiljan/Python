@@ -59,7 +59,7 @@ def read_csv_file(filename: str) -> list[list[str]]:
     with open(filename, "r", newline="") as csv_file:
         csv_reader = csv.reader(csv_file)
         for row in csv_reader:
-            list_of_rows += row
+            list_of_rows += [row]
     return list_of_rows
 
 
@@ -159,3 +159,4 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
     """
     pass
 
+print(read_csv_file("doodoo.csv"))

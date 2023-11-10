@@ -120,7 +120,10 @@ def write_csv_file(filename: str, data: list[list[str]]) -> None:
     :param data: A list of lists to write to the file, where each list represents a row.
     :return: None
     """
-    pass
+    with open(filename, 'w', newline='') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        for a in data:
+            csv_writer.writerow(a)
 
 
 def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv_output_filename: str) -> None:
@@ -167,3 +170,4 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
     pass
 
 write_lines_to_file("doodoo.txt", ["Mis sul viga on?", "Midagi."])
+write_csv_file("doodoo.csv", [["YAppa", "Yappa"],["RARARA", "KAKKAKA"]])

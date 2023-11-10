@@ -174,18 +174,33 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
     with open(dates_filename, "r") as dates_file:
         dates_reader = csv.reader(dates_file, delimiter=':')
         for row in dates_reader:
-            name, date = row
-            dates_data[name] = date
+            if len(row) == 2:
+                name, date = row
+                dates_data[name] = date
+            else:
+                print(f"Skipping invalid row in '{dates_filename}': {row}")
+
     with open(towns_filename, "r") as towns_file:
         towns_reader = csv.reader(towns_file, delimiter=':')
         for row in towns_reader:
-            name, town = row
-            towns_data[name] = town
+            if len(row) == 2:
+                name, town = row
+                towns_data[name] = town
+            else:
+                print(f"Skipping invalid row in '{towns_filename}': {row}")
 
     for name in dates_data:
-        date = dates_data[name]
-        town = towns_data.get(name, '')
-        output_data.append([name, town, date])
+        if name in towns_data:
+            date = dates_data[name]
+            town = towns_data[name]
+            output_data.append([name, town, date])
+        else:
+            output_data.append([name, '-', dates_data[name]])
+
+    for name in towns_data:
+        if name not in dates_data:
+            town = towns_data[name]
+            output_data.append([name, town, '-'])
 
     header = ["name", "town", "date"]
     with open(csv_output_filename, 'w', newline='') as output_file:

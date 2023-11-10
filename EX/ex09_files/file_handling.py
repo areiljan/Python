@@ -158,5 +158,3 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
     :return: None
     """
     pass
-
-print(read_csv_file("doodoo.csv"))

@@ -279,11 +279,16 @@ def write_list_of_dicts_to_csv_file(filename: str, data: list[dict]) -> None:
     """
     if not data:
         return ""
-    header = data[0].keys()
+    all_keys = set()
+
+    for row in data:
+        all_keys.update(row.keys())
 
     with open(filename, 'w', newline='') as csvfile:
-        csv_writer = csv.DictWriter(csvfile, fieldnames=header)
+        csv_writer = csv.DictWriter(csvfile, fieldnames=all_keys)
         csv_writer.writeheader()  # Write the header to the CSV file
 
         for row in data:
             csv_writer.writerow(row)
+
+write_list_of_dicts_to_csv_file("doodoo.csv", [{"ding": 12, "ching":54},{"ding": 12,"chong":32, "ching":54}])

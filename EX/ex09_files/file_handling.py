@@ -234,7 +234,7 @@ def read_csv_file_into_list_of_dicts(filename: str) -> list[dict[str, str]]:
     :param filename: The name of the CSV file to read.
     :return: A list of dictionaries where keys are taken from the header and values are strings.
     """
-    csv_reader = csv.DictReader(csvfile)
+    csv_reader = csv.DictReader(filename)
 
     # Read the first line
     first_line = next(csv_reader)

@@ -91,18 +91,13 @@ def substring(s: str, count: int) -> str:
     :param count: int, count <= len(string).
     :return: first count symbols from string.
     """
-    pass
+    if count >= len(s):
+        return ""
+    else:
+        return substring(s[:-1], count)
+    if count < 0:
+        return ""
 
-print(only_one_pair([1, 2, 3]))
-print(only_one_pair([1]))
-print(only_one_pair([1, 2, 3, 1]))
-print(only_one_pair([1, 2, 1, 3, 1]))
-print(only_one_pair([1, 2, 1, 3, 1, 2]))
-
-print(swap_dict_keys_and_value_lists({"a": ["b", "c"]}))
-print(swap_dict_keys_and_value_lists({1: [2, 3], 4: [2, 5]}))
-print(swap_dict_keys_and_value_lists({}))
-print(swap_dict_keys_and_value_lists({1: [2]}))
 
 if __name__ == '__main__':
     assert last_to_first("ab") == "ba"
@@ -124,3 +119,8 @@ if __name__ == '__main__':
     assert substring("hello", -1) == ""
     assert substring("", 0) == ""
     assert substring("world", 5) == "world"
+
+print(substring("hello", 2))
+print(substring("hello", -1))
+print(substring("", 0))
+print(substring("world", 5))

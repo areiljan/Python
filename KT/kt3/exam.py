@@ -63,7 +63,12 @@ def swap_dict_keys_and_value_lists(d: dict) -> dict:
     swap_dict_keys_and_value_lists({}) => {}
     swap_dict_keys_and_value_lists({1: [2]}) => {2: [1]}
     """
-    pass
+    swapped_dict = {}
+    for keys, values in d.items():
+        swapped_dict[keys] = values
+
+    return swapped_dict
+
 
 
 def substring(s: str, count: int) -> str:

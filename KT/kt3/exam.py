@@ -65,7 +65,11 @@ def swap_dict_keys_and_value_lists(d: dict) -> dict:
     """
     swapped_dict = {}
     for keys, values in d.items():
-        swapped_dict[keys] = values
+        for value in values:
+            if value not in swapped_dict:
+                swapped_dict[value] = [keys]
+            else:
+                swapped_dict[value].append(keys)
 
     return swapped_dict
 
@@ -94,6 +98,11 @@ print(only_one_pair([1]))
 print(only_one_pair([1, 2, 3, 1]))
 print(only_one_pair([1, 2, 1, 3, 1]))
 print(only_one_pair([1, 2, 1, 3, 1, 2]))
+
+print(swap_dict_keys_and_value_lists({"a": ["b", "c"]}))
+print(swap_dict_keys_and_value_lists({1: [2, 3], 4: [2, 5]}))
+print(swap_dict_keys_and_value_lists({}))
+print(swap_dict_keys_and_value_lists({1: [2]}))
 
 if __name__ == '__main__':
     assert last_to_first("ab") == "ba"

@@ -32,8 +32,19 @@ def only_one_pair(numbers: list) -> bool:
     only_one_pair([1, 2, 1, 3, 1]) => False
     only_one_pair([1, 2, 1, 3, 1, 2]) => False
     """
-    pass
+    pair_count = 0
+    for a in numbers:
+        count = numbers.count(a)
+        if count == 2:
+            pair_count += 1
 
+        if count >= 3:
+            return False
+
+    if pair_count == 2:
+        return True
+    else:
+        return False
 
 def swap_dict_keys_and_value_lists(d: dict) -> dict:
     """
@@ -73,6 +84,11 @@ def substring(s: str, count: int) -> str:
     """
     pass
 
+print(only_one_pair([1, 2, 3]))
+print(only_one_pair([1]))
+print(only_one_pair([1, 2, 3, 1]))
+print(only_one_pair([1, 2, 1, 3, 1]))
+print(only_one_pair([1, 2, 1, 3, 1, 2]))
 
 if __name__ == '__main__':
     assert last_to_first("ab") == "ba"

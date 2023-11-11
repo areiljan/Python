@@ -91,12 +91,11 @@ def substring(s: str, count: int) -> str:
     :param count: int, count <= len(string).
     :return: first count symbols from string.
     """
+    if count <= 0:
+        return ""
     if count >= len(s):
-        return ""
-    else:
-        return substring(s[:-1], count)
-    if count < 0:
-        return ""
+        return s
+    return substring(s[:-1], count - 1)
 
 
 if __name__ == '__main__':

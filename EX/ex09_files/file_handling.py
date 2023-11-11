@@ -234,14 +234,24 @@ def read_csv_file_into_list_of_dicts(filename: str) -> list[dict[str, str]]:
     :param filename: The name of the CSV file to read.
     :return: A list of dictionaries where keys are taken from the header and values are strings.
     """
-    result = []
-    with open(filename, 'r', newline='') as csvfile:
-        csv_reader = csv.DictReader(csvfile)
+    csv_reader = csv.DictReader(csvfile)
+
+    # Read the first line
+    first_line = next(csv_reader)
+    if not any(first_line.values()):
         for row in csv_reader:
-            result.append(row)
+            if any(row.values()):
+                header = row
+                result.append(header)
+                break
+    else:
+        header = first_line
+        result.append(header)
+
+    for row in csv_reader:
+        result.append(row)
 
     return result
-
 
 def write_list_of_dicts_to_csv_file(filename: str, data: list[dict]) -> None:
     """

@@ -46,6 +46,7 @@ def only_one_pair(numbers: list) -> bool:
     else:
         return False
 
+
 def swap_dict_keys_and_value_lists(d: dict) -> dict:
     """
     Swap keys and values in dict.
@@ -72,7 +73,6 @@ def swap_dict_keys_and_value_lists(d: dict) -> dict:
                 swapped_dict[value].append(keys)
 
     return swapped_dict
-
 
 
 def substring(s: str, count: int) -> str:

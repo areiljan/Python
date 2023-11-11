@@ -235,10 +235,11 @@ def read_csv_file_into_list_of_dicts(filename: str) -> list[dict[str, str]]:
     :return: A list of dictionaries where keys are taken from the header and values are strings.
     """
     result = []
-    with open(filename, "r", newline="") as csv_file:
-        csv_reader = csv.DictReader(csv_file)
+    with open(filename, 'r', newline='') as csvfile:
+        csv_reader = csv.DictReader(csvfile)
         for row in csv_reader:
             result.append(row)
+
     return result
 
 

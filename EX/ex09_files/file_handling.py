@@ -277,4 +277,12 @@ def write_list_of_dicts_to_csv_file(filename: str, data: list[dict]) -> None:
     :param data: List of dictionaries to write to the file.
     :return: None
     """
-    pass
+
+    header = data[0].keys()
+
+    with open(filename, 'w', newline='') as csvfile:
+        csv_writer = csv.DictWriter(csvfile, fieldnames=header)
+        csv_writer.writeheader()  # Write the header to the CSV file
+
+        for row in data:
+            csv_writer.writerow(row)

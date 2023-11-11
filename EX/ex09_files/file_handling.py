@@ -1,5 +1,6 @@
 import csv
 
+
 def read_file_contents(filename: str) -> str:
     """
     Read file contents into a string.
@@ -74,7 +75,7 @@ def write_contents_to_file(filename: str, contents: str) -> None:
     :param contents: The content to write to the file.
     :return: None
     """
-    with open(filename, "w", newline = "") as file:
+    with open(filename, "w", newline="") as file:
         file.write(contents)
 
 
@@ -90,13 +91,12 @@ def write_lines_to_file(filename: str, lines: list[str]) -> None:
     :param lines: A list of strings, each representing a line to write to the file.
     :return: None
     """
-    with open(filename, "w", newline = "") as file:
+    with open(filename, "w", newline="") as file:
         for i in range(len(lines)):
             if i + 1 < len(lines):
                 file.write(f"{lines[i]}\n")
             else:
                 file.write(f"{lines[i]}")
-
 
 
 def write_csv_file(filename: str, data: list[list[str]]) -> None:
@@ -177,8 +177,6 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
             if len(row) == 2:
                 name, date = row
                 dates_data[name] = date
-            else:
-                print(f"Skipping invalid row in '{dates_filename}': {row}")
 
     with open(towns_filename, "r") as towns_file:
         towns_reader = csv.reader(towns_file, delimiter=':')
@@ -186,8 +184,6 @@ def merge_dates_and_towns_into_csv(dates_filename: str, towns_filename: str, csv
             if len(row) == 2:
                 name, town = row
                 towns_data[name] = town
-            else:
-                print(f"Skipping invalid row in '{towns_filename}': {row}")
 
     for name in dates_data:
         if name in towns_data:
@@ -253,6 +249,8 @@ def read_csv_file_into_list_of_dicts(filename: str) -> list[dict[str, str]]:
             result.append(row_dict)
 
     return result
+
+
 def write_list_of_dicts_to_csv_file(filename: str, data: list[dict]) -> None:
     """
     Write a list of dictionaries to a CSV file.
@@ -278,7 +276,7 @@ def write_list_of_dicts_to_csv_file(filename: str, data: list[dict]) -> None:
     :return: None
     """
     if not data:
-        return ""
+        return
     all_keys = set()
 
     for row in data:
@@ -290,5 +288,3 @@ def write_list_of_dicts_to_csv_file(filename: str, data: list[dict]) -> None:
 
         for row in data:
             csv_writer.writerow(row)
-
-write_list_of_dicts_to_csv_file("doodoo.csv", [{"ding": 12, "ching":54},{"ding": 12,"chong":32, "ching":54}])

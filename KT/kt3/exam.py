@@ -95,7 +95,7 @@ def substring(s: str, count: int) -> str:
         return ""
     if count >= len(s):
         return s
-    return substring(s[:-1], count - 1)
+    return s[0] + substring(s[1:], count - 1)
 
 
 if __name__ == '__main__':
@@ -118,8 +118,3 @@ if __name__ == '__main__':
     assert substring("hello", -1) == ""
     assert substring("", 0) == ""
     assert substring("world", 5) == "world"
-
-print(substring("hello", 2))
-print(substring("hello", -1))
-print(substring("", 0))
-print(substring("world", 5))

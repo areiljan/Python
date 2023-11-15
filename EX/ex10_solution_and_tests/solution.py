@@ -1,6 +1,4 @@
 """Solution to be tested."""
-
-
 def students_study(time: int, coffee_needed: bool) -> bool:
     """
     Return True if students study in given circumstances.
@@ -9,12 +7,17 @@ def students_study(time: int, coffee_needed: bool) -> bool:
     (1, True) -> False.
     """
     if 18 <= time <= 24:
-        coffee_needed = True
+        if coffee_needed:
+            return False
+        else:
+            return True
     elif  5 <= time <= 17:
-        coffee_needed = True
+        if coffee_needed:
+            return True
+        else:
+            return False
     else:
-        coffee_needed = False
-    return coffee_needed
+        return False
 
 
 def lottery(a: int, b: int, c: int) -> int:

@@ -43,7 +43,7 @@ def fruit_order(small_baskets: int, big_baskets: int, ordered_amount: int) -> in
     (4, 1, 9) -> 4
     (3, 1, 10) -> -1
     """
-    number_of_smalls = small_baskets
+    number_of_smalls = 0
     while 5 <= ordered_amount and big_baskets > 0:
         ordered_amount -= 5
         big_baskets -= 1
@@ -51,6 +51,7 @@ def fruit_order(small_baskets: int, big_baskets: int, ordered_amount: int) -> in
     while 0 < ordered_amount and small_baskets > 0:
         ordered_amount -= 1
         small_baskets -= 1
+        number_of_smalls += 1
 
     if ordered_amount == 0:
         return number_of_smalls

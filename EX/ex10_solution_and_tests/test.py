@@ -19,3 +19,9 @@ def test_students_study_night_false():
 def test_students_study_night_true():
     assert study(4, True) == False
 
+def test_students_study_edge_case_true():
+    assert study(29, True) == False
+
+def test_students_study_edge_case_true():
+    assert study(29, False) == False
+

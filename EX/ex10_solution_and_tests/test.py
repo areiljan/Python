@@ -159,6 +159,9 @@ def test_fruit_baskets_enough_bigs_not_smalls():
 def test_fruit_baskets_enough_bigs_not_smalls_large_numbers():
     assert fruit(2, 400000, 20128) == -1
 
+def test_fruit_baskets_exact_match_large_numbers():
+    assert fruit(1222, 4000, 21222) == 1222
+
 
 
 

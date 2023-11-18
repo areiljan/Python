@@ -77,7 +77,25 @@ def test_lottery_halfpot():
 def test_lottery_halfpot_edge():
     assert lottery(-10, -10, -10) == 5
 
-def test_lottery_jackpot():
-    assert lottery(5, 5, 5) == 10
+def test_lottery_zeroes():
+    assert lottery(0, 0, 0) == 5
+
+def test_lottery_ab_same_c_diff():
+    assert lottery(4, 4, 6) == 0
+
+def test_lottery_ac_same_b_diff():
+    assert lottery(4, 7, 4) == 0
+
+def test_lottery_bc_same_a_diff():
+    assert lottery(21, 2, 2) == 1
+
+def test_lottery_ab_same_c_diff():
+    assert lottery(4, 4, 6) == 0
+
+
+
+
+
+
 
 

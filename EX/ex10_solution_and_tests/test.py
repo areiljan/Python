@@ -6,7 +6,7 @@ from solution import fruit_order as fruit
 
 def test_students_study_evening_false():
     """
-        Evening no coffee
+        Evening no coffee.
 
         Expected result: True.
     """
@@ -15,7 +15,7 @@ def test_students_study_evening_false():
 
 def test_students_study_evening_true():
     """
-            Evening coffee
+            Evening coffee.
 
             Expected result: True.
     """
@@ -24,7 +24,7 @@ def test_students_study_evening_true():
 
 def test_students_study_morning_false():
     """
-            Morning no coffee
+            Morning no coffee.
 
             Expected result: False.
     """
@@ -33,7 +33,7 @@ def test_students_study_morning_false():
 
 def test_students_study_morning_true():
     """
-            Morning coffee
+            Morning coffee.
 
             Expected result: True.
     """
@@ -42,7 +42,7 @@ def test_students_study_morning_true():
 
 def test_students_study_night_false():
     """
-            Night no coffee
+            Night no coffee.
 
             Expected result: False.
     """
@@ -51,7 +51,7 @@ def test_students_study_night_false():
 
 def test_students_study_night_true():
     """
-            Night coffee
+            Night coffee.
 
             Expected result: False.
     """
@@ -60,7 +60,7 @@ def test_students_study_night_true():
 
 def test_students_study_evening_edge_false():
     """
-            edge case evening no coffee
+            edge case evening no coffee.
 
             Expected result: False.
     """
@@ -69,7 +69,7 @@ def test_students_study_evening_edge_false():
 
 def test_students_study_evening_edge_true():
     """
-            edge case evening coffee
+            edge case evening coffee.
 
             Expected result: True.
     """
@@ -78,7 +78,7 @@ def test_students_study_evening_edge_true():
 
 def test_students_study_evening_edge_2_false():
     """
-            another edge case evening no coffee
+            another edge case evening no coffee.
 
             Expected result: True.
     """
@@ -87,7 +87,7 @@ def test_students_study_evening_edge_2_false():
 
 def test_students_study_evening_edge_2_true():
     """
-            another edge case evening coffee
+            another edge case evening coffee.
 
             Expected result: False.
     """
@@ -96,7 +96,7 @@ def test_students_study_evening_edge_2_true():
 
 def test_students_study_morning_edge_false():
     """
-            edge case morning no coffee
+            edge case morning no coffee.
 
             Expected result: False.
     """
@@ -105,7 +105,7 @@ def test_students_study_morning_edge_false():
 
 def test_students_study_morning_edge_true():
     """
-            edge case morning coffee
+            edge case morning coffee.
 
             Expected result: True.
     """
@@ -114,7 +114,7 @@ def test_students_study_morning_edge_true():
 
 def test_students_study_morning_edge_2_false():
     """
-            another edge case morning no coffee
+            another edge case morning no coffee.
 
             Expected result: False.
     """
@@ -123,7 +123,7 @@ def test_students_study_morning_edge_2_false():
 
 def test_students_study_morning_edge_2_true():
     """
-            another edge case morning no coffee
+            another edge case morning no coffee.
 
             Expected result: True.
     """
@@ -132,7 +132,7 @@ def test_students_study_morning_edge_2_true():
 
 def test_students_study_night_edge_false():
     """
-            edge case night no coffee
+            edge case night no coffee.
 
             Expected result: False.
     """
@@ -141,7 +141,7 @@ def test_students_study_night_edge_false():
 
 def test_students_study_night_edge_true():
     """
-            edge case night coffee
+            edge case night coffee.
 
             Expected result: False.
     """
@@ -150,7 +150,7 @@ def test_students_study_night_edge_true():
 
 def test_students_study_night_edge_2_true():
     """
-            another edge case night coffee
+            another edge case night coffee.
 
             Expected result: False.
     """
@@ -159,7 +159,7 @@ def test_students_study_night_edge_2_true():
 
 def test_students_study_night_edge_2_false():
     """
-            another edge case night no coffee
+            another edge case night no coffee.
 
             Expected result: False.
     """
@@ -168,7 +168,7 @@ def test_students_study_night_edge_2_false():
 
 def test_students_study_negative_time_true():
     """
-            time is negative, coffee
+            time is negative, coffee.
 
             Expected result: False.
     """
@@ -177,7 +177,7 @@ def test_students_study_negative_time_true():
 
 def test_students_study_negative_time_false():
     """
-            time is negative, no coffee
+            time is negative, no coffee.
 
             Expected result: False.
     """
@@ -186,7 +186,7 @@ def test_students_study_negative_time_false():
 
 def test_students_study_big_time_true():
     """
-            time is larger than 24, coffee
+            time is larger than 24, coffee.
 
             Expected result: False.
     """
@@ -195,7 +195,7 @@ def test_students_study_big_time_true():
 
 def test_students_study_big_time_false():
     """
-            time is larger than 24, no coffee
+            time is larger than 24, no coffee.
 
             Expected result: False.
     """
@@ -204,7 +204,7 @@ def test_students_study_big_time_false():
 
 def test_lottery_jackpot():
     """
-            all integers are 5, jackpot
+            all integers are 5, jackpot.
 
             Expected result: 10.
     """
@@ -213,7 +213,7 @@ def test_lottery_jackpot():
 
 def test_lottery_halfpot():
     """
-            all integers are same, positive
+            all integers are same, positive.
 
             Expected result: 5.
     """
@@ -222,7 +222,7 @@ def test_lottery_halfpot():
 
 def test_lottery_halfpot_edge():
     """
-            all integers are same, negative
+            all integers are same, negative.
 
             Expected result: 5.
     """
@@ -231,7 +231,7 @@ def test_lottery_halfpot_edge():
 
 def test_lottery_zeroes():
     """
-            all integers are same, zeroes
+            all integers are same, zeroes.
 
             Expected result: 5.
     """
@@ -240,7 +240,7 @@ def test_lottery_zeroes():
 
 def test_lottery_ab_same_c_diff():
     """
-            a and b are the same, c is different
+            a and b are the same, c is different.
 
             Expected result: 0.
     """
@@ -249,7 +249,7 @@ def test_lottery_ab_same_c_diff():
 
 def test_lottery_ac_same_b_diff():
     """
-            a and c are the same, b is different
+            a and c are the same, b is different.
 
             Expected result: 0.
     """
@@ -258,7 +258,7 @@ def test_lottery_ac_same_b_diff():
 
 def test_lottery_bc_same_a_diff():
     """
-            b and c are the same, a is different
+            b and c are the same, a is different.
 
             Expected result: 1.
     """
@@ -267,7 +267,7 @@ def test_lottery_bc_same_a_diff():
 
 def test_lottery_all_diff():
     """
-            b, c and a are all different
+            b, c and a are all different.
 
             Expected result: 1.
     """
@@ -276,7 +276,7 @@ def test_lottery_all_diff():
 
 def test_fruit_baskets_all_zeroes():
     """
-            all values are zeroes
+            all values are zeroes.
 
             Expected result: 0.
     """
@@ -285,7 +285,7 @@ def test_fruit_baskets_all_zeroes():
 
 def test_fruit_baskets_zero_big():
     """
-            not enough baskets, zero big baskets
+            not enough baskets, zero big baskets.
 
             Expected result: -1.
     """
@@ -294,7 +294,7 @@ def test_fruit_baskets_zero_big():
 
 def test_fruit_baskets_zero_small():
     """
-            not enough baskets, zero small baskets
+            not enough baskets, zero small baskets.
 
             Expected result: -1.
     """
@@ -303,7 +303,7 @@ def test_fruit_baskets_zero_small():
 
 def test_fruit_baskets_zero_small_zero_amount():
     """
-            enough baskets, zero small baskets
+            enough baskets, zero small baskets.
 
             Expected result: 0.
     """
@@ -312,7 +312,7 @@ def test_fruit_baskets_zero_small_zero_amount():
 
 def test_fruit_baskets_zero_big_zero_amount():
     """
-            enough baskets, zero big baskets and amount also zero
+            enough baskets, zero big baskets and amount also zero.
 
             Expected result: 0.
     """
@@ -321,7 +321,7 @@ def test_fruit_baskets_zero_big_zero_amount():
 
 def test_fruit_baskets_zero_both():
     """
-            not enough baskets, both baskets zero
+            not enough baskets, both baskets zero.
 
             Expected result: -1.
     """
@@ -330,7 +330,7 @@ def test_fruit_baskets_zero_both():
 
 def test_fruit_baskets_zero_amount():
     """
-            enough baskets, both baskets are given, amount zero
+            enough baskets, both baskets are given, amount zero.
 
             Expected result: 0.
     """
@@ -339,7 +339,7 @@ def test_fruit_baskets_zero_amount():
 
 def test_fruit_baskets_exact_match_big():
     """
-            enough baskets, only big baskets are given, matches exactly
+            enough baskets, only big baskets are given, matches exactly.
 
             Expected result: 0.
     """
@@ -348,7 +348,7 @@ def test_fruit_baskets_exact_match_big():
 
 def test_fruit_baskets_exact_match_small():
     """
-            enough baskets, only small baskets are given, matches exactly
+            enough baskets, only small baskets are given, matches exactly.
 
             Expected result: 21.
     """
@@ -357,7 +357,7 @@ def test_fruit_baskets_exact_match_small():
 
 def test_fruit_baskets_big_but_not_enough():
     """
-            enough big baskets, but not enough total
+            enough big baskets, but not enough total.
 
             Expected result: -1.
     """
@@ -366,7 +366,7 @@ def test_fruit_baskets_big_but_not_enough():
 
 def test_fruit_baskets_small_but_not_enough():
     """
-            enough small baskets, but not enough total
+            enough small baskets, but not enough total.
 
             Expected result: -1.
     """
@@ -375,7 +375,7 @@ def test_fruit_baskets_small_but_not_enough():
 
 def test_fruit_baskets_only_big_more():
     """
-            more than enough big baskets
+            more than enough big baskets.
 
             Expected result: 0.
     """
@@ -384,7 +384,7 @@ def test_fruit_baskets_only_big_more():
 
 def test_fruit_baskets_only_small_more():
     """
-            more than enough small baskets
+            more than enough small baskets.
 
             Expected result: 12.
     """
@@ -393,7 +393,7 @@ def test_fruit_baskets_only_small_more():
 
 def test_fruit_baskets_big_exact():
     """
-            only big baskets, exact match
+            only big baskets, exact match.
 
             Expected result: 0.
     """
@@ -402,7 +402,7 @@ def test_fruit_baskets_big_exact():
 
 def test_fruit_baskets_small_exact():
     """
-            both baskets, exact match
+            both baskets, exact match.
 
             Expected result: 12.
     """
@@ -411,7 +411,7 @@ def test_fruit_baskets_small_exact():
 
 def test_fruit_baskets_all_smalls_some_bigs():
     """
-            both baskets, exact match with smalls
+            both baskets, exact match with smalls.
 
             Expected result: 4.
     """
@@ -420,7 +420,7 @@ def test_fruit_baskets_all_smalls_some_bigs():
 
 def test_fruit_baskets_some_smalls_all_bigs():
     """
-            both baskets, exact match with bigs
+            both baskets, exact match with bigs.
 
             Expected result: 0.
     """
@@ -429,7 +429,7 @@ def test_fruit_baskets_some_smalls_all_bigs():
 
 def test_fruit_baskets_some_smalls_some_bigs():
     """
-            both baskets, exact match with some smalls and some bigs
+            both baskets, exact match with some smalls and some bigs.
 
             Expected result: 1.
     """
@@ -438,7 +438,7 @@ def test_fruit_baskets_some_smalls_some_bigs():
 
 def test_fruit_baskets_not_enough():
     """
-            both baskets, not enough of those
+            both baskets, not enough of those.
 
             Expected result: -1.
     """
@@ -447,7 +447,7 @@ def test_fruit_baskets_not_enough():
 
 def test_fruit_baskets_enough_bigs_not_smalls():
     """
-            both baskets, enough bigs but not smalls
+            both baskets, enough bigs but not smalls.
 
             Expected result: -1.
     """
@@ -456,7 +456,7 @@ def test_fruit_baskets_enough_bigs_not_smalls():
 
 def test_fruit_baskets_enough_bigs_not_smalls_large_numbers():
     """
-            both baskets, large numbers of all elements, there are enough bigs and not enough smalls
+            both baskets, large numbers of all elements, there are enough bigs and not enough smalls.
 
             Expected result: -1.
     """
@@ -465,7 +465,7 @@ def test_fruit_baskets_enough_bigs_not_smalls_large_numbers():
 
 def test_fruit_baskets_exact_match_large_numbers():
     """
-            both baskets are given, exact match, large numbers
+            both baskets are given, exact match, large numbers.
 
             Expected result: 1222.
     """

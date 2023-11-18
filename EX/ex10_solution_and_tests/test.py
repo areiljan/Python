@@ -1,6 +1,7 @@
 import pytest
 from solution import students_study as study
 from solution import lottery as lottery
+from solution import fruit_order as fruit
 
 def test_students_study_evening_false():
     assert study(20, False) == True
@@ -91,6 +92,21 @@ def test_lottery_bc_same_a_diff():
 
 def test_lottery_ab_same_c_diff():
     assert lottery(4, 4, 6) == 0
+
+def test_lottery_all_diff():
+    assert lottery(21, 2, 24) == 1
+
+def test_fruit_baskets_zero_big():
+    assert fruit(12, 0, 123) == -1
+
+def test_fruit_baskets_zero_small():
+    assert fruit(0, 1, 1) == -1
+
+def test_fruit_baskets_zero_both():
+    assert fruit(0, 0, 11) == -1
+
+
+
 
 
 

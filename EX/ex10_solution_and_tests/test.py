@@ -10,7 +10,7 @@ def test_students_study_evening_false():
 
     Expected result: True.
     """
-    assert study(20, False) == True
+    assert study(20, False) is True
 
 
 def test_students_study_evening_true():
@@ -19,7 +19,7 @@ def test_students_study_evening_true():
 
     Expected result: True.
     """
-    assert study(20, True) == True
+    assert study(20, True) is True
 
 
 def test_students_study_morning_false():
@@ -28,7 +28,7 @@ def test_students_study_morning_false():
 
     Expected result: False.
     """
-    assert study(10, False) == False
+    assert study(10, False) is False
 
 
 def test_students_study_morning_true():
@@ -37,7 +37,7 @@ def test_students_study_morning_true():
 
     Expected result: True.
     """
-    assert study(10, True) == True
+    assert study(10, True) is True
 
 
 def test_students_study_night_false():
@@ -46,7 +46,7 @@ def test_students_study_night_false():
 
     Expected result: False.
     """
-    assert study(3, False) == False
+    assert study(3, False) is False
 
 
 def test_students_study_night_true():
@@ -55,7 +55,7 @@ def test_students_study_night_true():
 
     Expected result: False.
     """
-    assert study(3, True) == False
+    assert study(3, True) is False
 
 
 def test_students_study_evening_edge_false():
@@ -64,7 +64,7 @@ def test_students_study_evening_edge_false():
 
     Expected result: False.
     """
-    assert study(18, False) == True
+    assert study(18, False) is True
 
 
 def test_students_study_evening_edge_true():
@@ -73,7 +73,7 @@ def test_students_study_evening_edge_true():
 
     Expected result: True.
     """
-    assert study(24, True) == True
+    assert study(24, True) is True
 
 
 def test_students_study_evening_edge_2_false():
@@ -82,7 +82,7 @@ def test_students_study_evening_edge_2_false():
 
     Expected result: True.
     """
-    assert study(24, False) == True
+    assert study(24, False) is True
 
 
 def test_students_study_evening_edge_2_true():
@@ -91,7 +91,7 @@ def test_students_study_evening_edge_2_true():
 
     Expected result: False.
     """
-    assert study(18, True) == True
+    assert study(18, True) is True
 
 
 def test_students_study_morning_edge_false():
@@ -100,7 +100,7 @@ def test_students_study_morning_edge_false():
 
     Expected result: False.
     """
-    assert study(5, False) == False
+    assert study(5, False) is False
 
 
 def test_students_study_morning_edge_true():
@@ -109,7 +109,7 @@ def test_students_study_morning_edge_true():
 
     Expected result: True.
     """
-    assert study(17, True) == True
+    assert study(17, True) is True
 
 
 def test_students_study_morning_edge_2_false():
@@ -118,7 +118,7 @@ def test_students_study_morning_edge_2_false():
 
     Expected result: False.
     """
-    assert study(17, False) == False
+    assert study(17, False) is False
 
 
 def test_students_study_morning_edge_2_true():
@@ -127,7 +127,7 @@ def test_students_study_morning_edge_2_true():
 
     Expected result: True.
     """
-    assert study(5, True) == True
+    assert study(5, True) is True
 
 
 def test_students_study_night_edge_false():
@@ -136,7 +136,7 @@ def test_students_study_night_edge_false():
 
     Expected result: False.
     """
-    assert study(1, False) == False
+    assert study(1, False) is False
 
 
 def test_students_study_night_edge_true():
@@ -145,7 +145,7 @@ def test_students_study_night_edge_true():
 
     Expected result: False.
     """
-    assert study(1, True) == False
+    assert study(1, True) is False
 
 
 def test_students_study_night_edge_2_true():
@@ -154,7 +154,7 @@ def test_students_study_night_edge_2_true():
 
     Expected result: False.
     """
-    assert study(4, True) == False
+    assert study(4, True) is False
 
 
 def test_students_study_night_edge_2_false():
@@ -163,7 +163,7 @@ def test_students_study_night_edge_2_false():
 
     Expected result: False.
     """
-    assert study(4, False) == False
+    assert study(4, False) is False
 
 
 def test_students_study_negative_time_true():
@@ -172,7 +172,7 @@ def test_students_study_negative_time_true():
 
     Expected result: False.
     """
-    assert study(-1, True) == False
+    assert study(-1, True) is False
 
 
 def test_students_study_negative_time_false():
@@ -181,7 +181,7 @@ def test_students_study_negative_time_false():
 
     Expected result: False.
     """
-    assert study(-1, False) == False
+    assert study(-1, False) is False
 
 
 def test_students_study_big_time_true():
@@ -190,7 +190,7 @@ def test_students_study_big_time_true():
 
     Expected result: False.
     """
-    assert study(30, True) == False
+    assert study(30, True) is False
 
 
 def test_students_study_big_time_false():
@@ -199,7 +199,7 @@ def test_students_study_big_time_false():
 
     Expected result: False.
     """
-    assert study(30, False) == False
+    assert study(30, False) is False
 
 
 def test_lottery_jackpot():
@@ -470,5 +470,3 @@ def test_fruit_baskets_exact_match_large_numbers():
     Expected result: 1222.
     """
     assert fruit(1222, 4000, 21222) == 1222
-
-

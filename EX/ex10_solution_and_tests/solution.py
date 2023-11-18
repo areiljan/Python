@@ -1,4 +1,6 @@
 """Solution to be tested."""
+
+
 def students_study(time: int, coffee_needed: bool) -> bool:
     """
     Return True if students study in given circumstances.
@@ -8,7 +10,7 @@ def students_study(time: int, coffee_needed: bool) -> bool:
     """
     if 18 <= time <= 24:
         return True
-    elif  5 <= time <= 17:
+    elif 5 <= time <= 17:
         if coffee_needed:
             return True
         else:
@@ -35,7 +37,6 @@ def lottery(a: int, b: int, c: int) -> int:
         return 0
 
 
-
 def fruit_order(small_baskets: int, big_baskets: int, ordered_amount: int) -> int:
     """
     Return number of small fruit baskets if it's possible to finish the order, otherwise return -1.
@@ -57,5 +58,3 @@ def fruit_order(small_baskets: int, big_baskets: int, ordered_amount: int) -> in
         return number_of_smalls
     else:
         return -1
-
-print(fruit_order(10, 0, 9))

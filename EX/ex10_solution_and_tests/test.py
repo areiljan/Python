@@ -135,11 +135,11 @@ def test_fruit_baskets_only_big_more():
 def test_fruit_baskets_only_small_more():
     assert fruit(105, 0, 12) == 12
 
-def test_fruit_baskets_only_big_exact():
+def test_fruit_baskets_big_exact():
     assert fruit(0, 2, 10) == 0
 
-def test_fruit_baskets_only_small_exact():
-    assert fruit(12, 0, 12) == 12
+def test_fruit_baskets_small_exact():
+    assert fruit(12, 2, 22) == 12
 
 
 

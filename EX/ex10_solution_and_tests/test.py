@@ -142,7 +142,7 @@ def test_fruit_baskets_small_exact():
     assert fruit(12, 2, 22) == 12
 
 def test_fruit_baskets_all_smalls_some_bigs():
-    assert fruit(12, 2, 4) == 4
+    assert fruit(4, 2, 4) == 4
 
 def test_fruit_baskets_some_smalls_all_bigs():
     assert fruit(12, 2, 10) == 0
@@ -153,8 +153,11 @@ def test_fruit_baskets_some_smalls_some_bigs():
 def test_fruit_baskets_not_enough():
     assert fruit(12, 2, 25) == -1
 
-def test_fruit_baskets_not_enough_both():
-    assert fruit(12, 2, 4) == 4
+def test_fruit_baskets_enough_bigs_not_smalls():
+    assert fruit(3, 2, 14) == -1
+
+def test_fruit_baskets_enough_bigs_not_smalls_large_number():
+    assert fruit(3, 14, 144) == -1
 
 
 

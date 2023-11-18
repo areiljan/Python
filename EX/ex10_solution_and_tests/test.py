@@ -96,6 +96,9 @@ def test_lottery_ab_same_c_diff():
 def test_lottery_all_diff():
     assert lottery(21, 2, 24) == 1
 
+def test_fruit_baskets_all_zeroes():
+    assert fruit(0, 0, 0) == 0
+
 def test_fruit_baskets_zero_big():
     assert fruit(12, 0, 123) == -1
 
@@ -120,6 +123,11 @@ def test_fruit_baskets_big_but_not_enough():
 def test_fruit_baskets_small_but_not_enough():
     assert fruit(14, 0, 15) == -1
 
+def test_fruit_baskets_only_big_more():
+    assert fruit(0, 15, 10) == 0
+
+def test_fruit_baskets_only_small_more():
+    assert fruit(105, 0, 12) == 93
 
 
 

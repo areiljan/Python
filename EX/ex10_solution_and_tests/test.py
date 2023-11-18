@@ -106,7 +106,7 @@ def test_fruit_baskets_zero_both():
     assert fruit(0, 0, 11) == -1
 
 def test_fruit_baskets_zero_amount():
-    assert fruit(21, 123, 0) == 21
+    assert fruit(21, 123, 0) == 0
 
 def test_fruit_baskets_exact_match_big():
     assert fruit(0, 5, 25) == 0

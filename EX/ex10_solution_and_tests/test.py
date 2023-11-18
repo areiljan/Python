@@ -105,6 +105,22 @@ def test_fruit_baskets_zero_small():
 def test_fruit_baskets_zero_both():
     assert fruit(0, 0, 11) == -1
 
+def test_fruit_baskets_zero_amount():
+    assert fruit(21, 123, 0) == 21
+
+def test_fruit_baskets_exact_match_big():
+    assert fruit(0, 5, 25) == 0
+
+def test_fruit_baskets_exact_match_small():
+    assert fruit(21, 0, 21) == 21
+
+def test_fruit_baskets_big_but_not_enough():
+    assert fruit(0, 2, 15) == -1
+
+def test_fruit_baskets_small_but_not_enough():
+    assert fruit(14, 0, 15) == -1
+
+
 
 
 

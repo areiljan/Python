@@ -1,5 +1,6 @@
 import pytest
 from solution import students_study as study
+from solution import lottery as lottery
 
 def test_students_study_evening_false():
     assert study(20, False) == True
@@ -66,4 +67,17 @@ def test_students_study_big_time_true():
 
 def test_students_study_big_time_false():
     assert study(30, False) == False
+
+def test_lottery_jackpot():
+    assert lottery(5, 5, 5) == 10
+
+def test_lottery_halfpot():
+    assert lottery(10, 10, 10) == 5
+
+def test_lottery_halfpot_edge():
+    assert lottery(-10, -10, -10) == 5
+
+def test_lottery_jackpot():
+    assert lottery(5, 5, 5) == 10
+
 

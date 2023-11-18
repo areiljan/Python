@@ -1,4 +1,4 @@
-import pytest
+"""Test cases for solution."""
 from solution import students_study as study
 from solution import lottery as lottery
 from solution import fruit_order as fruit

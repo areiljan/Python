@@ -84,7 +84,8 @@ def find_cars_by_feature(cars: list[Car], feature: str) -> list[Car]:
     for car in cars:
         if feature in car.features:
             cars_with_feature.append(car)
-    return cars_with_feature
+
+    return sort_cars_by_make(cars_with_feature)
 
 
 def fuel_needed(car: Car, distance: int) -> float:

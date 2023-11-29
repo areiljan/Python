@@ -5,6 +5,7 @@ import json
 
 class Car:
     """Car class."""
+
     fuel_consumption: float
 
     def __init__(self, make: str, model: str, fuel_consumption: float, features: list[str]):
@@ -48,8 +49,7 @@ def sort_cars_by_make(cars: list[Car]) -> list[Car]:
     :param cars: The list of cars to sort.
     :return: The sorted list of cars.
     """
-    return sorted(cars, key = lambda x: (x.make, x.model))
-
+    return sorted(cars, key=lambda x: (x.make, x.model))
 
 
 def find_cars_by_make_and_model(cars: list[Car], make: str, model: str) -> list[Car]:
@@ -139,7 +139,6 @@ def most_popular_feature(cars: list[Car]) -> str:
     return max(count_dict, key=count_dict.get)
 
 
-
 def write_cars_to_file(cars: list[Car], file_name: str):
     """
     Write the given list of cars to the given file in JSON format.
@@ -163,6 +162,7 @@ def write_cars_to_file(cars: list[Car], file_name: str):
 
     with open(file_name, "w") as file:
         json.dump(car_list, file, indent=2)
+
 
 def read_cars_from_file(file_name: str) -> list[Car]:
     """

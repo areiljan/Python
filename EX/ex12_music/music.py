@@ -96,7 +96,9 @@ class NoteCollection:
         :param note: Note to remove
         :return: The removed Note object or None.
         """
-        return None
+        if note.upper() in self.note_collection:
+            self.note_collection.remove(note.upper())
+            return note.upper()
 
     def extract(self) -> list[Note]:
         """

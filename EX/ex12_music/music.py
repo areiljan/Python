@@ -117,7 +117,8 @@ class NoteCollection:
 
         :return: A list of all the notes that were previously in the collection.
         """
-        return []
+        self.note_collection = []
+        return self.note_collection[::]
 
     def get_content(self) -> str:
         """
@@ -139,7 +140,13 @@ class NoteCollection:
 
         :return: Content as a string
         """
-        return ''
+        sorted_notes = sorted(self.note_collection, key=lambda x: x.note)
+
+        content = "Notes:\n"
+        for note in sorted_notes:
+            content += f" * {note.note}\n"
+
+        return content.rstrip()
 
 if __name__ == '__main__':
     note_one = Note('a') # yes, lowercase

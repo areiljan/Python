@@ -72,7 +72,6 @@ class NoteCollection:
         """
         self.note_collection = []
 
-
     def add(self, note: Note) -> None:
         """
         Add note to the collection.
@@ -85,7 +84,6 @@ class NoteCollection:
             raise TypeError("Input 'note' must be an instance of the Note class")
         elif note not in self.note_collection:
             self.note_collection.append(note)
-
 
     def pop(self, note: str) -> Note | None:
         """
@@ -116,16 +114,14 @@ class NoteCollection:
           collection.extract() # -> [<Note: A>, <Note: C>]
           collection.extract() # -> []
 
-        In this example, the second time we use .extract() the output list is empty because we already extracted everything.
+        In this example, the second time we use .extract() the output list is empty
+        because we already extracted everything.
 
         :return: A list of all the notes that were previously in the collection.
         """
         self.return_note_collection = self.note_collection
         self.note_collection = []
         return self.return_note_collection[::]
-
-
-
 
     def get_content(self) -> str:
         """
@@ -147,7 +143,7 @@ class NoteCollection:
 
         :return: Content as a string
         """
-        sorted_notes = sorted(self.note_collection, key=lambda x: x.normalize())  # Sort the notes using the normalize method
+        sorted_notes = sorted(self.note_collection, key=lambda x: x.normalize())
         content = "Notes:\n"
         for note in sorted_notes:
             content += f"  * {note.normalize()}\n"
@@ -155,14 +151,15 @@ class NoteCollection:
             return "Notes:\n  Empty."
         return content.strip()
 
+
 if __name__ == '__main__':
-    note_one = Note('a') # yes, lowercase
+    note_one = Note('a')  # yes, lowercase
     note_two = Note('C')
     note_three = Note('Eb')
     collection = NoteCollection()
 
-    print(note_one) # <Note: A>
-    print(note_three) # <Note: Eb>
+    print(note_one)  # <Note: A>
+    print(note_three)  # <Note: Eb>
 
     collection.add(note_one)
     collection.add(note_two)
@@ -172,7 +169,7 @@ if __name__ == '__main__':
     #   * A
     #   * C
 
-    print(collection.extract()) # [<Note: A>,<Note: C>]
+    print(collection.extract())  # [<Note: A>,<Note: C>]
     print(collection.get_content())
     # Notes:
     #  Empty

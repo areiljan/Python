@@ -20,7 +20,7 @@ class Note:
         self.note = note
 
     def normalize(self):
-        """Normalizing the notes.
+        """Normalize the notes.
 
         Making an easily reusable function that normalizes the notes making every note into one character notes
         and only using '#' to avoid confusion.

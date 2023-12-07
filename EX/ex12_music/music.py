@@ -19,7 +19,7 @@ class Note:
         self.note = note
 
     def normalize(self, note: str):
-        note = note.upper()
+        note = self.note.upper()
         if len(note) == 1:
             return note
 

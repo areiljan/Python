@@ -7,6 +7,7 @@ class Note:
 
     Every note has a name and a sharpness or alteration (supported values: "", "#", "b").
     """
+
     def __init__(self, note: str):
         """Initialize the class.
 
@@ -19,6 +20,11 @@ class Note:
         self.note = note
 
     def normalize(self):
+        """Normalizing the notes.
+
+        making an easily reusable function that normalizes the notes making every note into one character notes
+        or only using '#' to avoid confusion
+        """
         note = self.note.upper()
         if len(note) == 1:
             return note

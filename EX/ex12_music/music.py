@@ -55,9 +55,6 @@ class Note:
         normalized_note = self.normalize(self.note)
         normalized_other = self.normalize(other)
 
-        if not isinstance(normalized_other, Note):
-            return False
-
         if normalized_other is None or normalized_note is None:
             return False
         else:
@@ -96,9 +93,10 @@ class NoteCollection:
         :param note: Note to remove
         :return: The removed Note object or None.
         """
-        if note.upper() in self.note_collection:
-            self.note_collection.remove(note.upper())
-            return note.upper()
+        note_to_search = Note(note)
+        if note_to_search in self.note_collection:
+            self.note_collection.remove(note_to_search)
+            return note_to_search
         else:
             return None
 
@@ -151,8 +149,10 @@ class NoteCollection:
         content = "Notes:\n"
         for note in sorted_notes:
             content += f" * {note.note}\n"
-
-        return content.rstrip()
+        if content == "Notes:\n":
+            return f"{content}#  Empty"
+        else:
+            return content.rstrip()
 
 if __name__ == '__main__':
     note_one = Note('a') # yes, lowercase

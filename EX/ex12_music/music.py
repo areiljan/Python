@@ -18,7 +18,7 @@ class Note:
         """
         self.note = note
 
-    def normalize(self, note: str):
+    def normalize(self):
         note = self.note.upper()
         if len(note) == 1:
             return note
@@ -52,8 +52,8 @@ class Note:
         Return True if equal otherwise False. Used to check A# == Bb or Ab == Z#
         """
 
-        normalized_note = self.normalize(self.note)
-        normalized_other = self.normalize(other)
+        normalized_note = self.normalize()
+        normalized_other = other.normalize()
 
         if normalized_other is None or normalized_note is None:
             return False
@@ -147,15 +147,13 @@ class NoteCollection:
 
         :return: Content as a string
         """
-        sorted_notes = sorted(self.note_collection, key=lambda x: x.note)
-
+        sorted_notes = sorted(self.note_collection, key=lambda x: x.normalize())  # Sort the notes using the normalize method
         content = "Notes:\n"
         for note in sorted_notes:
-            content += f"  * {note.note}\n"
+            content += f" * {note.normalize()}\n"
         if content == "Notes:\n":
-            return f"{content}  Empty"
-        else:
-            return content.rstrip()
+            return "Notes:\n Empty."
+        return content.strip()
 
 if __name__ == '__main__':
     note_one = Note('a') # yes, lowercase

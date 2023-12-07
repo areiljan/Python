@@ -43,7 +43,7 @@ class Note:
         Return: <Note: [note]> where [note] is the note_name + sharpness if the sharpness is given, that is not "".
         Repr should display the original note and sharpness, before normalization.
         """
-        return f"<Note: {self.note}>"
+        return f"<Note: {self.note[0].upper()}{self.note[1:]}>"
 
     def __eq__(self, other):
         """
@@ -54,6 +54,9 @@ class Note:
 
         normalized_note = self.normalize(self.note)
         normalized_other = self.normalize(other)
+
+        if not isinstance(normalized_other, Note):
+            return False
 
         if normalized_other is None or normalized_note is None:
             return False
@@ -71,6 +74,8 @@ class NoteCollection:
         You will likely need to add something here, maybe a dict or a list?
         """
         self.note_collection = []
+
+
     def add(self, note: Note) -> None:
         """
         Add note to the collection.
@@ -79,11 +84,8 @@ class NoteCollection:
 
         :param note: Input object to add to the collection
         """
-        if not isinstance(note, Note):
-            raise TypeError("Input 'note' must be an instance of the Note class")
-
-        self.note_collection.append(note)
-
+        if note not in self.note_collection:
+            self.note_collection.append(note)
 
     def pop(self, note: str) -> Note | None:
         """
@@ -97,6 +99,8 @@ class NoteCollection:
         if note.upper() in self.note_collection:
             self.note_collection.remove(note.upper())
             return note.upper()
+        else:
+            return None
 
     def extract(self) -> list[Note]:
         """
@@ -115,8 +119,12 @@ class NoteCollection:
 
         :return: A list of all the notes that were previously in the collection.
         """
+        self.return_note_collection = self.note_collection
         self.note_collection = []
-        return self.note_collection[::]
+        return self.return_note_collection[::]
+
+
+
 
     def get_content(self) -> str:
         """

@@ -150,9 +150,9 @@ class NoteCollection:
         sorted_notes = sorted(self.note_collection, key=lambda x: x.normalize())  # Sort the notes using the normalize method
         content = "Notes:\n"
         for note in sorted_notes:
-            content += f" * {note.normalize()}\n"
+            content += f"  * {note.normalize()}\n"
         if content == "Notes:\n":
-            return "Notes:\n Empty."
+            return "Notes:\n  Empty."
         return content.strip()
 
 if __name__ == '__main__':

@@ -22,8 +22,8 @@ class Note:
     def normalize(self):
         """Normalizing the notes.
 
-        making an easily reusable function that normalizes the notes making every note into one character notes
-        or only using '#' to avoid confusion
+        Making an easily reusable function that normalizes the notes making every note into one character notes
+        and only using '#' to avoid confusion.
         """
         note = self.note.upper()
         if len(note) == 1:
@@ -57,7 +57,6 @@ class Note:
 
         Return True if equal otherwise False. Used to check A# == Bb or Ab == Z#
         """
-
         normalized_note = self.normalize()
         normalized_other = other.normalize()
 

@@ -16,7 +16,7 @@ class Note:
         Note is a single alphabetical letter which is always uppercase.
         NB! Ab == Z#
         """
-        self.note = self.normalize(note)
+        self.note = note
 
     def normalize(self, note: str):
         note = note.upper()

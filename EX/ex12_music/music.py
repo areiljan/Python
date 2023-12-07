@@ -51,16 +51,14 @@ class Note:
 
         Return True if equal otherwise False. Used to check A# == Bb or Ab == Z#
         """
-        if other is None or self.note is None:
+
+        normalized_note = self.normalize(self.note)
+        normalized_other = self.normalize(other)
+
+        if normalized_other is None or normalized_note is None:
             return False
         else:
-            if len(other) == 1 and len(self.note) == 1:
-                return other.lower() == self.note.lower()
-            if len(other) == 2:
-                if (other[1] == "b" and self.note[1] == "b" or other[1] == "#" and self.note[1] == "#"):
-                    return other[0].lower() == self.note[0].lower()
-            return False
-
+            return normalized_other == normalized_note
 
 
 class NoteCollection:

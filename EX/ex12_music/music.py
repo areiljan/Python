@@ -151,9 +151,9 @@ class NoteCollection:
 
         content = "Notes:\n"
         for note in sorted_notes:
-            content += f" * {note.note}\n"
+            content += f"* {note.note}\n"
         if content == "Notes:\n":
-            return f"{content} Empty"
+            return f"{content}Empty"
         else:
             return content.rstrip()
 

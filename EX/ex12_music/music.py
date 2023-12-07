@@ -81,7 +81,9 @@ class NoteCollection:
 
         :param note: Input object to add to the collection
         """
-        if note not in self.note_collection:
+        if not isinstance(note, Note):
+            raise TypeError("Input 'note' must be an instance of the Note class")
+        else:
             self.note_collection.append(note)
 
     def pop(self, note: str) -> Note | None:

@@ -83,8 +83,9 @@ class NoteCollection:
         """
         if not isinstance(note, Note):
             raise TypeError("Input 'note' must be an instance of the Note class")
-        else:
+        elif note not in self.note_collection:
             self.note_collection.append(note)
+
 
     def pop(self, note: str) -> Note | None:
         """

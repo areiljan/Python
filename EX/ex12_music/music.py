@@ -200,10 +200,12 @@ class Chord:
         self.note_two = note_two
         if note_three is not None:
             self.note_three = note_three
+            list_of_notes = [self.note_one.note, self.note_two.note, self.note_three.note]
+        else:
+            list_of_notes = [self.note_one.note, self.note_two.note]
         self.chord_name = chord_name
-
-        self.list_of_notes = [self.note_one, self.note_two, self.note_three]
-        if not self.list_of_notes == set(self.list_of_notes):
+        set_of_notes = set(list_of_notes)
+        if not len(list(set_of_notes)) == len(list_of_notes) or chord_name in list_of_notes:
             raise DuplicateNoteNamesException()
 
     def __repr__(self) -> str:
@@ -212,10 +214,7 @@ class Chord:
 
         Return as: <Chord: [chord_name]> where [chord_name] is the name of the chord.
         """
-        return f"<Chord: [{self.chord_name}]>"
-
-    def Alphabetical_order(self):
-        return sorted(self)
+        return f"<Chord: {self.chord_name}>"
 
 
 class Chords:
@@ -227,7 +226,7 @@ class Chords:
 
         Add whatever you need to make this class function.
         """
-        self.chords = []
+        self.chords = {}
     def add(self, chord: Chord) -> None:
         """
         Determine if chord is valid and then add it to chords.
@@ -236,6 +235,19 @@ class Chords:
 
         :param chord: Chord to be added.
         """
+        chords_in_list = [chord.note_one.normalize(), chord.note_two.normalize()]
+        try:
+            if chord.note_three:
+                chords_in_list.append(chord.note_three.normalize())
+        except AttributeError:
+            pass
+
+        sorted_chord = tuple(sorted(chords_in_list))
+
+        if sorted_chord not in self.chords.keys():
+            self.chords[sorted_chord] = chord.chord_name
+        else:
+            raise ChordOverlapException()
 
 
     def get(self, first_note: Note, second_note: Note, third_note: Note = None) -> Chord | None:
@@ -260,7 +272,16 @@ class Chords:
         :param third_note: The third note of the chord.
         :return: Chord or None.
         """
-        return None
+        chords_in_list = [first_note.normalize(), second_note.normalize()]
+        try:
+            if third_note:
+                chords_in_list.append(third_note.normalize())
+        except AttributeError:
+            pass
+
+        sorted_chord = tuple(sorted(chords_in_list))
+
+        return self.chords.get(sorted_chord, None)
 
 class DuplicateNoteNamesException(Exception):
     """Raised when attempting to add a chord that has same names for notes and product."""
@@ -304,6 +325,3 @@ if __name__ == '__main__':
     except ChordOverlapException:
         print('Raised ChordOverlapException, working as intended!')
 
-    chord1 = Chord(Note('A'), Note('C#'), 'Amaj', Note('E'))
-    result = chord1.Alphabetical_order()
-    print(result)

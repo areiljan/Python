@@ -281,7 +281,8 @@ class Chords:
 
         sorted_chord = tuple(sorted(chords_in_list))
 
-        return self.chords.get(sorted_chord, None)
+        if sorted_chord in self.chords.keys():
+            return f"<Chord: {self.chords[sorted_chord]}>"
 
 class DuplicateNoteNamesException(Exception):
     """Raised when attempting to add a chord that has same names for notes and product."""
@@ -298,12 +299,11 @@ if __name__ == '__main__':
     print(chords.get(Note('B'), Note('C'), Note('A')))  # ->  <Chord: Amaj>
     print(chords.get(Note('D'), Note('Z')))  # ->  None
     chords.add(Chord(Note('c#'), Note('d#'), 'c#5'))
-    print(chords.get(Note('C#'), Note('d#')))  # ->  <Chord: c#5>
+    print(chords.get(Note('C#'), Note('d#')))  # ->  <Chord: c#5>"""
 
     chords = Chords()
 
     chord1 = Chord(Note('A'), Note('C#'), 'Amaj', Note('E'))
-    print(chord1)
     chord2 = Chord(Note('E'), Note('G'), 'Emin', note_three=Note('B'))
     chord3 = Chord(Note('E'), Note('B'), 'E5')
 

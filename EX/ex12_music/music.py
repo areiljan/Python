@@ -277,10 +277,7 @@ class Chords:
 
         sorted_chord = tuple(sorted(chords_in_list))
 
-        for chord_notes, chord in self.chords.items():
-            if sorted_chord == chord_notes:
-                return chord
-        return None
+        return self.chords.get(sorted_chord)
 
 
 class DuplicateNoteNamesException(Exception):

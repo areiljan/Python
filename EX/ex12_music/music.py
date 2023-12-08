@@ -220,16 +220,17 @@ class Chord:
 
     def __eq__(self, other):
         """
-        Comparing chords.
+        Compare two chords.
 
-        By which parameters to determine whether two chords are equal.
+        Determines by which parameters to decide whether two chords are equal.
         :param other:
         :return:
         """
         return isinstance(other, Chord) and self.notes == other.notes and self.chord_name == other.chord_name
 
     def __hash__(self):
-        """Generate a hash value for a Chord
+        """
+        Generate a hash value for a Chord.
 
         Ensures that chord objects with the same note values and chord names
         have the same hash values.

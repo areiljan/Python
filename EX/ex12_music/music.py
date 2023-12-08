@@ -291,7 +291,7 @@ class Chords:
         sorted_chord = tuple(sorted(chords_in_list))
 
         if sorted_chord in self.chords.keys():
-            return f"<Chord: {self.chords[sorted_chord]}>"
+            return f"'<Chord: {self.chords[sorted_chord]}>'"
 
 class DuplicateNoteNamesException(Exception):
     """Raised when attempting to add a chord that has same names for notes and product."""

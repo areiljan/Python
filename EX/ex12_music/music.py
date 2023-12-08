@@ -200,12 +200,13 @@ class Chord:
         self.note_two = note_two
         if note_three is not None:
             self.note_three = note_three
-            self.list_of_notes = [self.note_one.note, self.note_two.note, self.note_three.note]
+            self.notes = [self.note_one.normalize(), self.note_two.normalize(), self.note_three.normalize()]
         else:
-            self.list_of_notes = [self.note_one.note, self.note_two.note]
+            self.notes = [self.note_one.normalize(), self.note_two.normalize()]
         self.chord_name = chord_name
-        set_of_notes = set(self.list_of_notes)
-        if not len(set_of_notes) == len(self.list_of_notes) or chord_name in self.list_of_notes:
+        set_of_notes = set(self.notes)
+        self.notes.sort()
+        if not len(list(set_of_notes)) == len(self.notes) or chord_name in self.notes:
             raise DuplicateNoteNamesException()
 
     def __repr__(self) -> str:
@@ -217,17 +218,11 @@ class Chord:
         return f"<Chord: {self.chord_name}>"
 
     def __eq__(self, other):
-        """
-        Chord comparison
-
-        :param other:
-        :return:
-        """
-        return sorted(self.list_of_notes) == sorted(self.list_of_notes)
-
+        return (isinstance(other, Chord) and self.notes == other.notes and self.chord_name == other.chord_name)
 
     def __hash__(self):
-        return 1
+        return hash((tuple(self.notes), self.chord_name))
+
 
 class Chords:
     """Chords class."""
@@ -247,20 +242,9 @@ class Chords:
 
         :param chord: Chord to be added.
         """
-        chords_in_list = [chord.note_one.normalize(), chord.note_two.normalize()]
-        try:
-            if chord.note_three:
-                chords_in_list.append(chord.note_three.normalize())
-        except AttributeError:
-            pass
-
-        sorted_chord = tuple(sorted(chords_in_list))
-
-        if sorted_chord not in self.chords.keys():
-            self.chords[sorted_chord] = chord.chord_name
-        else:
+        if tuple(chord.notes) in tuple(self.chords):
             raise ChordOverlapException()
-
+        self.chords[tuple(chord.notes)] = chord
 
     def get(self, first_note: Note, second_note: Note, third_note: Note = None) -> Chord | None:
         """
@@ -293,8 +277,11 @@ class Chords:
 
         sorted_chord = tuple(sorted(chords_in_list))
 
-        if sorted_chord in self.chords.keys():
-            return repr(self.chords)
+        for chord_notes, chord in self.chords.items():
+            if sorted_chord == chord_notes:
+                return chord
+        return None
+
 
 class DuplicateNoteNamesException(Exception):
     """Raised when attempting to add a chord that has same names for notes and product."""
@@ -307,8 +294,7 @@ class ChordOverlapException(Exception):
 if __name__ == '__main__':
     chords = Chords()
     chords.add(Chord(Note('A'), Note('B'), 'Amaj', Note('C')))
-    chords.add(Chord(Note('G'), Note('F'), 'Amaj', Note('H')))
-    print(chords.get(Note('A'), Note('C'), Note('B')))  # ->  <Chord: Amaj>
+    print(chords.get(Note('A'), Note('B'), Note('C')))  # ->  <Chord: Amaj>
     print(chords.get(Note('B'), Note('C'), Note('A')))  # ->  <Chord: Amaj>
     print(chords.get(Note('D'), Note('Z')))  # ->  None
     chords.add(Chord(Note('c#'), Note('d#'), 'c#5'))
@@ -337,3 +323,4 @@ if __name__ == '__main__':
         print('Did not raise, not working as intended.')
     except ChordOverlapException:
         print('Raised ChordOverlapException, working as intended!')
+

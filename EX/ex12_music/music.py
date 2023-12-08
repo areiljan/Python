@@ -244,7 +244,7 @@ class Chords:
 
         sorted_chord = tuple(sorted(chords_in_list))
 
-        if sorted_chord not in self.chords.keys():
+        if sorted_chord not in self.chords.keys() and chord.chord_name not in self.chords.values():
             self.chords[sorted_chord] = chord.chord_name
         else:
             raise ChordOverlapException()

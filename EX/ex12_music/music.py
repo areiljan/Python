@@ -226,6 +226,9 @@ class Chord:
         return sorted(self.list_of_notes) == sorted(self.list_of_notes)
 
 
+    def __hash__(self):
+        return 1
+
 class Chords:
     """Chords class."""
 
@@ -291,7 +294,7 @@ class Chords:
         sorted_chord = tuple(sorted(chords_in_list))
 
         if sorted_chord in self.chords.keys():
-            return f'<Chord: {self.chords[sorted_chord]}>'
+            return repr(self.chords)
 
 class DuplicateNoteNamesException(Exception):
     """Raised when attempting to add a chord that has same names for notes and product."""

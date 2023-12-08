@@ -186,6 +186,7 @@ if __name__ == '__main__':
     print(collection.pop('a') == note_one)  # True
     print(collection.pop('Eb') == note_three)  # True
 
+
 class Chord:
     """Chord class."""
 
@@ -218,7 +219,7 @@ class Chord:
         return f"<Chord: {self.chord_name}>"
 
     def __eq__(self, other):
-        return (isinstance(other, Chord) and self.notes == other.notes and self.chord_name == other.chord_name)
+        return isinstance(other, Chord) and self.notes == other.notes and self.chord_name == other.chord_name
 
     def __hash__(self):
         return hash((tuple(self.notes), self.chord_name))
@@ -234,6 +235,7 @@ class Chords:
         Add whatever you need to make this class function.
         """
         self.chords = {}
+
     def add(self, chord: Chord) -> None:
         """
         Determine if chord is valid and then add it to chords.
@@ -320,4 +322,3 @@ if __name__ == '__main__':
         print('Did not raise, not working as intended.')
     except ChordOverlapException:
         print('Raised ChordOverlapException, working as intended!')
-

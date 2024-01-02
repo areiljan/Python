@@ -147,7 +147,7 @@ class Spaceship:
 
         The altruist can sacrifice his/her own life to bring a crewmate back from the dead.
         """
-        if dead_crewmate in self.dead_players:
+        if dead_crewmate in self.dead_players and altruist.role == "Altruist":
             self.dead_players.remove(dead_crewmate)
             self.player_color_list.append(dead_crewmate.color)
             self.crewmate_list.append(dead_crewmate)

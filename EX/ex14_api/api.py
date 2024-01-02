@@ -52,7 +52,7 @@ def post_request(url: str, data: dict) -> requests.Response:
 
         return response.json()
     except requests.RequestException as e:
-        return e
+        return e.status_code
 
 
 

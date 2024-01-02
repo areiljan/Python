@@ -1,4 +1,5 @@
-"""Spaceship"""
+"""Spaceship."""
+
 
 class Crewmate:
     """
@@ -6,12 +7,14 @@ class Crewmate:
 
     Not all crewmates are created equal, each has their own color, role and task attributes.
     """
+
     def __init__(self, color: str, role: str, tasks: int = 10):
         """Initialize the class.
 
         The color must be capitalized and the role must be inserted in all caps.
         The crewmates will also have a boolean value of protected and their tasks,
-        which are at 10 by default."""
+        which are at 10 by default.
+        """
         self.color = color.capitalize()
 
         roles = ("Crewmate", "Sheriff", "Guardian Angel", "Altruist")
@@ -38,6 +41,7 @@ class Crewmate:
         if self.tasks > 0:
             self.tasks -= 1
 
+
 class Impostor:
     """
     Impostor class.
@@ -45,6 +49,7 @@ class Impostor:
     Not all impostors are created equal, each has their own color and kills
     attribute, which starts at one.
     """
+
     def __init__(self, color):
         """Initialize the impostor class.
 
@@ -61,6 +66,7 @@ class Impostor:
         """
         return f"Impostor {self.color}, kills: {self.kills}."
 
+
 class Spaceship:
     """Spaceship class
 
@@ -68,6 +74,7 @@ class Spaceship:
     lists of players in different stages of the game and filtering systems, to keep an eye on
     the progress of each player.
     """
+
     def __init__(self, ):
         """Initialize the class.
 
@@ -119,8 +126,8 @@ class Spaceship:
         impostor count does not exceed 3.
         """
         color = impostor.color.capitalize()
-        if impostor.color not in self.player_color_list and isinstance(impostor, Impostor)\
-        and len(self.impostor_list) < 3:
+        if (impostor.color not in self.player_color_list and isinstance(impostor, Impostor)
+            and len(self.impostor_list) < 3):
             self.impostor_list.append(impostor)
             self.player_color_list.append(color)
         else:
@@ -149,8 +156,8 @@ class Spaceship:
 
         The altruist can sacrifice his/her own life to bring a crewmate back from the dead.
         """
-        if dead_crewmate in self.dead_players and altruist.role == "Altruist" \
-            and altruist in self.crewmate_list:
+        if (dead_crewmate in self.dead_players and altruist.role == "Altruist"
+            and altruist in self.crewmate_list):
             self.dead_players.remove(dead_crewmate)
             self.player_color_list.append(dead_crewmate.color)
             self.crewmate_list.append(dead_crewmate)
@@ -164,10 +171,11 @@ class Spaceship:
         The guardian angel can choose which one player he chooses to cast a protection spell upon.
         All other players will be toggled unprotected.
         """
-        if (guardian_angel in self.dead_players and guardian_angel.role == "Guardian Angel" \
-                and crewmate_to_protect in self.crewmate_list \
+        if (guardian_angel in self.dead_players and guardian_angel.role == "Guardian Angel"
+                and crewmate_to_protect in self.crewmate_list
                 and not sum(1 for crewmate in self.crewmate_list if crewmate.protected) == 1):
             crewmate_to_protect.protected = True
+
     def kill_crewmate(self, impostor: Impostor, color):
         """Kill a crewmate.
 
@@ -243,7 +251,6 @@ class Spaceship:
         return sorted_impostors[0]
 
 
-
 if __name__ == "__main__":
     print("Spaceship.")
 
@@ -309,7 +316,7 @@ if __name__ == "__main__":
     spaceship.kill_crewmate(orange, "green")
     spaceship.kill_crewmate(orange, "red")
     print(green in spaceship.dead_players)  # -> False
-    print(green.protected) # -> False
+    print(green.protected)  # -> False
     print(red.protected)
     print()
 
@@ -327,4 +334,3 @@ if __name__ == "__main__":
     print(spaceship.sort_crewmates_by_tasks())  # -> Red, White
     print(spaceship.sort_impostors_by_kills())  # -> Purple, Orange, Black
     print(spaceship.get_regular_crewmates())  # -> White, Red
-

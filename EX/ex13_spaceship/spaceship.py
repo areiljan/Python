@@ -26,13 +26,15 @@ class Crewmate:
     def __repr__(self):
         """Represent the class.
 
-        A nice and clean way to display the information when directly calling the object in this class."""
+        A nice and clean way to display the information when directly calling the object in this class.
+        """
         return f"{self.color}, role: {self.role}, tasks left: {self.tasks}."
 
     def complete_task(self):
         """Complete a task.
 
-        Upon finishing a task, remove one integer value from the crewmates tasks attribute."""
+        Upon finishing a task, remove one integer value from the crewmates tasks attribute.
+        """
         self.tasks -= 1
 
 class Impostor:
@@ -54,22 +56,25 @@ class Impostor:
     def __repr__(self):
         """Represent the class.
 
-        A nice and clean way to display the information when directly calling the object in this class."""
-        return f"Impostor {self.color}, kills: {self.kills}"
+        A nice and clean way to display the information when directly calling the object in this class.
+        """
+        return f"Impostor {self.color}, kills: {self.kills}."
 
 class Spaceship:
     """Spaceship class
 
     This is the class, where the game takes place, this class holds all the action functions,
     lists of players in different stages of the game and filtering systems, to keep an eye on
-    the progress of each player."""
+    the progress of each player.
+    """
     def __init__(self, ):
         """Initialize the class.
 
         Adding the crewmate list, which will only hold living crewmates, the impostor list,
         which will only hold living impostors. The player color list, which makes it easier to
         keep track of the in-game player colors. And lastly the dead players list, which will hold
-        both dead impostors and crewmates."""
+        both dead impostors and crewmates.
+        """
         self.crewmate_list = []
         self.impostor_list = []
         self.player_color_list = []
@@ -78,25 +83,29 @@ class Spaceship:
     def get_crewmate_list(self):
         """Call the crewmate list.
 
-        Returns a representation of crewmates."""
+        Returns a representation of crewmates.
+        """
         return self.crewmate_list
 
     def get_impostor_list(self):
         """Call the impostor list.
 
-        Returns a representation of impostors."""
+        Returns a representation of impostors.
+        """
         return self.impostor_list
 
     def get_dead_players(self):
         """Call the dead.
 
-        Returns a list of the dead."""
+        Returns a list of the dead.
+        """
         return self.dead_players
 
     def add_crewmate(self, crewmate: Crewmate):
         """Add a crewmate.
 
-        Adds a crewmate to the spaceship. Makes sure, that no duplicate colors are added."""
+        Adds a crewmate to the spaceship. Makes sure, that no duplicate colors are added.
+        """
         color = crewmate.color.capitalize()
         if crewmate.color not in self.player_color_list:
             self.crewmate_list.append(crewmate)
@@ -106,7 +115,8 @@ class Spaceship:
         """Add an impostor.
 
         Adds an impostor to the spaceship. Makes sure, that no duplicates are added and that the
-        impostor count does not exceed 3."""
+        impostor count does not exceed 3.
+        """
         color = impostor.color.capitalize()
         if impostor.color not in self.player_color_list and isinstance(impostor, Impostor)\
         and len(self.impostor_list) < 3:
@@ -119,8 +129,9 @@ class Spaceship:
         """Kill an impostor.
 
         The Sheriff can kill an impostor if he chooses right, if he does not choose right , he himself
-        will die."""
-        color.capitalize()
+        will die.
+        """
+        color = color.capitalize()
         chosen_impostor = list(filter(lambda impostor: impostor.color == color, self.impostor_list))
         if chosen_impostor:
             self.player_color_list.remove(color)
@@ -133,7 +144,8 @@ class Spaceship:
     def revive_crewmate(self, altruist: Crewmate, dead_crewmate: Crewmate):
         """Revive a crewmate.
 
-        The altruist can sacrifice his/her own life to bring a crewmate back from the dead."""
+        The altruist can sacrifice his/her own life to bring a crewmate back from the dead.
+        """
         if dead_crewmate in self.dead_players:
             self.dead_players.remove(dead_crewmate)
             self.player_color_list.append(dead_crewmate.color)
@@ -146,7 +158,8 @@ class Spaceship:
         """Protect a crewmate.
 
         The guardian angel can choose which one player he chooses to cast a protection spell upon.
-        All other players will be toggled unprotected."""
+        All other players will be toggled unprotected.
+        """
         if guardian_angel in self.dead_players:
             for crewmate in self.crewmate_list:
                 crewmate.protected = False
@@ -155,7 +168,8 @@ class Spaceship:
     def kill_crewmate(self, impostor: Impostor, color):
         """Kill a crewmate.
 
-        The impostors can kill crewmates. The impostor kill statistic will be upped by one."""
+        The impostors can kill crewmates. The impostor kill statistic will be upped by one.
+        """
         color = color.capitalize()
         chosen_crewmate = list(filter(lambda crewmate: crewmate.color == color, self.crewmate_list))
         if chosen_crewmate:
@@ -170,21 +184,24 @@ class Spaceship:
     def sort_crewmates_by_tasks(self):
         """Sort crewmates by tasks.
 
-        Sort the remaining crewmates by the amount of tasks they have left."""
+        Sort the remaining crewmates by the amount of tasks they have left.
+        """
         sorted_crewmates = sorted(self.crewmate_list, key=lambda crewmate: crewmate.tasks)
         return sorted_crewmates
 
     def sort_impostors_by_kills(self):
         """Sort impostors by kills.
 
-        Sort the remaining impostors by the amount of kills they have."""
+        Sort the remaining impostors by the amount of kills they have.
+        """
         sorted_impostors = sorted(self.impostor_list, key=lambda impostor: impostor.kills, reverse=True)
         return sorted_impostors
 
     def get_regular_crewmates(self):
         """Get a list of the remaining regular crewmates.
 
-        Filters out a list of crewmates without a special role attribute."""
+        Filters out a list of crewmates without a special role attribute.
+        """
         chosen_crewmate = list(filter(lambda crewmate: crewmate.role == "Crewmate", self.crewmate_list))
         return chosen_crewmate
 
@@ -192,7 +209,8 @@ class Spaceship:
         """Get the player role.
 
         Get the player role with the speciifed color. The roles are: Crewmate, Impostor, Guardian
-        Angel, Sheriff, Altruist."""
+        Angel, Sheriff, Altruist.
+        """
         color.capitalize()
         if color in self.player_color_list:
             chosen_impostor = list(filter(lambda impostor: impostor.color == color, self.impostor_list))
@@ -205,14 +223,16 @@ class Spaceship:
     def get_crewmate_with_most_tasks_done(self):
         """Get crewmate with least tasks left.
 
-        Returns the crewmate with the most actions done during this game."""
+        Returns the crewmate with the most actions done during this game.
+        """
         sorted_crewmates = sorted(self.crewmate_list, key=lambda crewmate: crewmate.tasks)
         return sorted_crewmates[0]
 
     def get_impostor_with_most_kills(self):
         """Get the deadliest impostor.
 
-        Returns the impostor with the biggest amount of kills."""
+        Returns the impostor with the biggest amount of kills.
+        """
         sorted_impostors = sorted(self.impostor_list, key=lambda impostor: impostor.kills, reverse=True)
         return sorted_impostors[0]
 

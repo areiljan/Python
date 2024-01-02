@@ -64,7 +64,11 @@ def delete_request(url: str) -> int | requests.RequestException:
     :param url: The URL to which the DELETE request will be sent.
     :return: Server's response status code or the exception object if an error occurs.
     """
-    pass
+    try:
+        response = requests.delete(url)
+        return response.status_code
+    except requests.RequestException as e:
+        return e
 
 
 def stream_request(url: str) -> str:

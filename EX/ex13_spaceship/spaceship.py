@@ -15,7 +15,7 @@ class Crewmate:
         self.color = color.capitalize()
 
         roles = ("Crewmate", "Sheriff", "Guardian Angel", "Altruist")
-        role.title()
+        role = role.title()
         if role not in roles:
             self.role = "Crewmate"
         else:
@@ -254,7 +254,7 @@ if __name__ == "__main__":
     print("Let's add some crewmates.")
     red = Crewmate("Red", "Crewmate")
     white = Crewmate("White", "Impostor")
-    yellow = Crewmate("Yellow", "Guardian Angel", tasks=5)
+    yellow = Crewmate("Yellow", "Guardian angel", tasks=5)
     green = Crewmate("green", "Altruist")
     blue = Crewmate("BLUE", "Sheriff", tasks=0)
 

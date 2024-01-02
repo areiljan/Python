@@ -147,7 +147,8 @@ class Spaceship:
 
         The altruist can sacrifice his/her own life to bring a crewmate back from the dead.
         """
-        if dead_crewmate in self.dead_players and altruist.role == "Altruist":
+        if dead_crewmate in self.dead_players and altruist.role == "Altruist" \
+            and altruist in self.crewmate_list:
             self.dead_players.remove(dead_crewmate)
             self.player_color_list.append(dead_crewmate.color)
             self.crewmate_list.append(dead_crewmate)
@@ -218,8 +219,10 @@ class Spaceship:
             chosen_crewmate = list(filter(lambda crewmate: crewmate.color == color, self.crewmate_list))
             if chosen_impostor:
                 return "Impostor"
-            else:
+            elif chosen_crewmate:
                 return chosen_crewmate[0].role
+            else:
+                return None
 
     def get_crewmate_with_most_tasks_done(self):
         """Get crewmate with least tasks left.

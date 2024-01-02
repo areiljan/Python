@@ -31,7 +31,7 @@ def get_request_error_handling(url: str) -> int | requests.RequestException:
         response.raise_for_status()
 
         return response.status_code
-    except RequestException as e:
+    except requests.RequestException as e:
         return f"{e}"
 
 
@@ -50,7 +50,7 @@ def post_request(url: str, data: dict) -> requests.Response:
         response = requests.post(url, json=data)
         response.raise_for_status()
 
-        return response
+        return response.json()
     except RequestException as e:
         return f"{e}"
 

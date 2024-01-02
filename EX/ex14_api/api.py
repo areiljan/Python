@@ -32,7 +32,7 @@ def get_request_error_handling(url: str) -> int | requests.RequestException:
 
         return response.status_code
     except requests.RequestException as e:
-        return e
+        return f"{e}"
 
 
 

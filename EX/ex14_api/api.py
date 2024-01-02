@@ -48,8 +48,9 @@ def post_request(url: str, data: dict) -> requests.Response:
     """
     try:
         response = requests.post(url, json=data)
-        if response.get("status_code") == 200:
-            return response.json()
+        if response.status_code != 200:
+            raise Exception(f"Error: Request failed with status code {response.status_code}")
+        return response
     except requests.RequestException as e:
         return e
 

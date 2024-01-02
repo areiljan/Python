@@ -138,7 +138,7 @@ class Spaceship:
             if chosen_impostor:
                 self.player_color_list.remove(color)
                 self.impostor_list.remove(chosen_impostor[0])
-                self.dead_players.append(chosen_impostor)
+                self.dead_players.append(chosen_impostor[0])
             else:
                 self.crewmate_list.remove(sheriff)
                 self.dead_players.append(sheriff)

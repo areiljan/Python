@@ -15,7 +15,7 @@ class Crewmate:
         self.protected = True
 
     def __repr__(self):
-        return f"{self.color}, role: {self.role}, tasks left: {self.tasks}"
+        return f"{self.color}, role: {self.role}, tasks left: {self.tasks}."
 
     def complete_task(self):
         self.tasks -= 1

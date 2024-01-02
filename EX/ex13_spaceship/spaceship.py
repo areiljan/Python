@@ -54,7 +54,8 @@ class Impostor:
         """Initialize the impostor class.
 
         The color must be capitalized, the impostor also has a kills attribute,
-        which starts at one by default."""
+        which starts at one by default.
+        """
         self.color = color.capitalize()
 
         self.kills = 0
@@ -68,7 +69,7 @@ class Impostor:
 
 
 class Spaceship:
-    """Spaceship class
+    """Spaceship class.
 
     This is the class, where the game takes place, this class holds all the action functions,
     lists of players in different stages of the game and filtering systems, to keep an eye on
@@ -127,7 +128,7 @@ class Spaceship:
         """
         color = impostor.color.capitalize()
         if (impostor.color not in self.player_color_list and isinstance(impostor, Impostor)
-            and len(self.impostor_list) < 3):
+                and len(self.impostor_list) < 3):
             self.impostor_list.append(impostor)
             self.player_color_list.append(color)
         else:
@@ -157,7 +158,7 @@ class Spaceship:
         The altruist can sacrifice his/her own life to bring a crewmate back from the dead.
         """
         if (dead_crewmate in self.dead_players and altruist.role == "Altruist"
-            and altruist in self.crewmate_list):
+                and altruist in self.crewmate_list):
             self.dead_players.remove(dead_crewmate)
             self.player_color_list.append(dead_crewmate.color)
             self.crewmate_list.append(dead_crewmate)

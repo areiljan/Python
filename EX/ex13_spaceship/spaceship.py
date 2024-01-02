@@ -169,7 +169,7 @@ class Spaceship:
             if is_value_present:
                 for crewmate in self.crewmate_list:
                     crewmate.protected = False
-                crewmate_to_protect.protected = True
+            crewmate_to_protect.protected = True
 
     def kill_crewmate(self, impostor: Impostor, color):
         """Kill a crewmate.

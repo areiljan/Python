@@ -164,11 +164,10 @@ class Spaceship:
         The guardian angel can choose which one player he chooses to cast a protection spell upon.
         All other players will be toggled unprotected.
         """
-        if guardian_angel in self.dead_players and guardian_angel.role == "Guardian Angel"\
+        if guardian_angel in self.dead_players and guardian_angel.role == "Guardian Angel" \
                 and crewmate_to_protect in self.crewmate_list:
-            is_value_present = any(crewmate.protected is True for crewmate in self.crewmate_list)
-            if is_value_present:
-                for crewmate in self.crewmate_list:
+            for crewmate in self.crewmate_list:
+                if crewmate != crewmate_to_protect:
                     crewmate.protected = False
             crewmate_to_protect.protected = True
 

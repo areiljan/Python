@@ -172,16 +172,17 @@ class Spaceship:
 
         The impostors can kill crewmates. The impostor kill statistic will be upped by one.
         """
-        color = color.capitalize()
-        chosen_crewmate = list(filter(lambda crewmate: crewmate.color == color, self.crewmate_list))
-        if chosen_crewmate:
-            if not chosen_crewmate[0].protected:
-                self.crewmate_list.remove(chosen_crewmate[0])
-                self.player_color_list.remove(color)
-                self.dead_players.append(chosen_crewmate[0])
-                impostor.kills += 1
-            elif chosen_crewmate[0].protected:
-                chosen_crewmate[0].protected = False
+        if impostor in self.impostor_list:
+            color = color.capitalize()
+            chosen_crewmate = list(filter(lambda crewmate: crewmate.color == color, self.crewmate_list))
+            if chosen_crewmate:
+                if not chosen_crewmate[0].protected:
+                    self.crewmate_list.remove(chosen_crewmate[0])
+                    self.player_color_list.remove(color)
+                    self.dead_players.append(chosen_crewmate[0])
+                    impostor.kills += 1
+                elif chosen_crewmate[0].protected:
+                    chosen_crewmate[0].protected = False
 
     def sort_crewmates_by_tasks(self):
         """Sort crewmates by tasks.

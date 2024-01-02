@@ -306,10 +306,14 @@ if __name__ == "__main__":
 
     print("Yellow is a Guardian angel, and can protect their allies when dead.")
     spaceship.protect_crewmate(yellow, green)
+    spaceship.protect_crewmate(yellow, red)
+    print(sum(1 for crewmate in spaceship.crewmate_list if crewmate.protected))
     print(green.protected)  # -> True
     spaceship.kill_crewmate(orange, "green")
+    spaceship.kill_crewmate(orange, "red")
     print(green in spaceship.dead_players)  # -> False
-    print(green.protected)  # -> False
+    print(green.protected) # -> False
+    print(red.protected)
     print()
 
     print("Green revives their ally.")

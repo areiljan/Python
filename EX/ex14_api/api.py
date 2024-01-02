@@ -32,8 +32,8 @@ def get_request_error_handling(url: str) -> int | requests.RequestException:
         response.raise_for_status()
 
         return response.status_code
-    except requests.RequestException as e:
-        return e
+    except requests.RequestException:
+        return RequestException
 
 
 def post_request(url: str, data: dict) -> Response:
@@ -51,8 +51,8 @@ def post_request(url: str, data: dict) -> Response:
         if response.status_code != 200:
             raise Exception(f"Error: Request failed with status code {response.status_code}")
         return response
-    except requests.RequestException as exception:
-        return exception
+    except requests.RequestException:
+        return RequestException
 
 
 def delete_request(url: str) -> int | requests.RequestException:
@@ -67,8 +67,8 @@ def delete_request(url: str) -> int | requests.RequestException:
     try:
         response = requests.delete(url)
         return response.status_code
-    except requests.RequestException as e:
-        return e
+    except requests.RequestException:
+        return RequestException
 
 
 def stream_request(url: str) -> str:
@@ -134,9 +134,9 @@ def advanced_user_filter(url, min_followers: int, min_posts: int, min_following:
     response = requests.get(url)
     user_data = response.json()
     for user in user_data:
-        if (user["followers"] >= min_followers and
-                user["posts"] >= min_posts and
-                user["following"] >= min_following):
+        if (user["followers"] >= min_followers
+                and user["posts"] >= min_posts
+                and user["following"] >= min_following):
             criteria = {'username': user['username'],
                         'full_name': user['full_name'],
                         'followers': user['followers'],
@@ -198,4 +198,3 @@ if __name__ == '__main__':
         750000, 900, 2500))
     print(fetch_aggregate_data(
         "https://cs.taltech.ee/services/ex14/json-data"))
-

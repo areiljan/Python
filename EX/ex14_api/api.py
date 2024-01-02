@@ -131,7 +131,22 @@ def advanced_user_filter(url, min_followers: int, min_posts: int, min_following:
     :param min_following: Minimum following required.
     :return: List of user data dictionaries.
     """
-    pass
+
+    filtered_users = []
+    response = requests.get(url)
+    user_data = response.json()
+    for user in user_data:
+        if (user["followers"] >= min_followers and
+            user["posts"] >= min_posts and
+            user["following"] >= min_following):
+            criteria = {'username': user['username'],
+                        'full_name': user['full_name'],
+                        'followers': user['followers'],
+                        'following': user['following'],
+                        'posts': user['posts']}
+            filtered_users.append(criteria)
+    return filtered_users
+
 
 
 def fetch_aggregate_data(url: str) -> dict:

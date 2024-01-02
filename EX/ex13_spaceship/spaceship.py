@@ -108,7 +108,7 @@ class Spaceship:
         Adds a crewmate to the spaceship. Makes sure, that no duplicate colors are added.
         """
         color = crewmate.color.capitalize()
-        if crewmate.color not in self.player_color_list:
+        if crewmate.color not in self.player_color_list and isinstance(crewmate, Crewmate):
             self.crewmate_list.append(crewmate)
             self.player_color_list.append(color)
 

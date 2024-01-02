@@ -169,7 +169,29 @@ def fetch_aggregate_data(url: str) -> dict:
     :param url: URL from which to fetch user data.
     :return: Aggregated data including total and average values.
     """
-    pass
+    user_count = 0
+    total_followers = 0
+    total_following = 0
+    total_posts = 0
+
+    response = requests.get(url)
+    user_data = response.json()
+    for user in user_data:
+        if user['username']:
+            user_count += 1
+        total_followers += user['followers']
+        total_following += user['following']
+        total_posts += user['posts']
+
+    average_followers = total_followers / user_count
+    average_following = total_following / user_count
+    average_posts = total_posts / user_count
+    return {'average_followers': average_followers,
+            'average_following': average_following,
+            'average_posts': average_posts,
+            'total_followers': total_followers,
+            'total_following': total_following,
+            'total_posts': total_posts}
 
 
 if __name__ == '__main__':

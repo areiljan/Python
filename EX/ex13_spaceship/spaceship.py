@@ -15,11 +15,11 @@ class Crewmate:
         self.color = color.capitalize()
 
         roles = ("Crewmate", "Sheriff", "Guardian Angel", "Altruist")
-        role.capitalize()
+        role.title()
         if role not in roles:
             self.role = "Crewmate"
         else:
-            self.role = role.capitalize()
+            self.role = role.title()
         self.tasks = tasks
         self.protected = False
 
@@ -181,7 +181,7 @@ class Spaceship:
                     self.player_color_list.remove(color)
                     self.dead_players.append(chosen_crewmate[0])
                     impostor.kills += 1
-                elif chosen_crewmate[0].protected:
+                else:
                     chosen_crewmate[0].protected = False
 
     def sort_crewmates_by_tasks(self):
@@ -244,11 +244,9 @@ class Spaceship:
 
 
 if __name__ == "__main__":
-
     print("Spaceship.")
 
     spaceship = Spaceship()
-
     print(spaceship.get_dead_players())  # -> []
     print()
 
@@ -304,9 +302,11 @@ if __name__ == "__main__":
 
     print("Yellow is a Guardian angel, and can protect their allies when dead.")
     spaceship.protect_crewmate(yellow, green)
+    print(green.protected)  # -> True
     spaceship.kill_crewmate(orange, "green")
     print(green in spaceship.dead_players)  # -> False
     print(green.protected)  # -> False
+    print()
 
     print("Green revives their ally.")
     spaceship.kill_crewmate(purple, "RED")
@@ -322,3 +322,4 @@ if __name__ == "__main__":
     print(spaceship.sort_crewmates_by_tasks())  # -> Red, White
     print(spaceship.sort_impostors_by_kills())  # -> Purple, Orange, Black
     print(spaceship.get_regular_crewmates())  # -> White, Red
+

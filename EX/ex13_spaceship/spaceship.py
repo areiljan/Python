@@ -1,11 +1,21 @@
 """Spaceship"""
 
 class Crewmate:
+    """
+    Crewmate class.
+
+    Not all crewmates are created equal, each has their own color, role and task attributes.
+    """
     def __init__(self, color: str, role: str, tasks: int = 10):
+        """Initializes the class.
+
+        The color must be capitalized and the role must be inserted in all caps.
+        The crewmates will also have a boolean value of protected and their tasks,
+        which are at 10 by default."""
         color.capitalize()
         self.color = color
 
-        roles = ("CREWMATE", "SHERIFF", "GUARDIAN ANGEL", "ALTRUIST")
+        roles = ("Crewmate", "Sheriff", "Guardian angel", "Altruist")
         role.capitalize()
         if role not in roles:
             self.role = "Crewmate"
@@ -15,19 +25,38 @@ class Crewmate:
         self.protected = True
 
     def __repr__(self):
+        """Representing the class.
+
+        A nice and clean way to display the information when directly calling the object in this class."""
         return f"{self.color}, role: {self.role}, tasks left: {self.tasks}."
 
     def complete_task(self):
+        """Completing a task.
+
+        Upon finishing a task, remove one integer value from the crewmates tasks attribute."""
         self.tasks -= 1
 
 class Impostor:
+    """
+    Crewmate class.
+
+    Not all impostors are created equal, each has their own color and kills
+    attribute, which starts at one.
+    """
     def __init__(self, color):
+        """Initialize the impostor class.
+
+        The color must be capitalized, the impostor also has a kills attribute,
+        which starts at one by default."""
         color.capitalize()
         self.color = color
 
         self.kills = 0
 
     def __repr__(self):
+        """Representing the class.
+
+        A nice and clean way to display the information when directly calling the object in this class."""
         return f"Impostor {self.color}, kills: {self.kills}"
 
 class Spaceship:

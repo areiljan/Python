@@ -104,7 +104,18 @@ def get_authenticated_request(url: str, auth_token: str) -> Any | requests.Reque
     :return: Server's response json object or the exception object if an error occurs.
 
     """
-    pass
+    try:
+        headers = {"Authorization": f"Bearer {auth_token}"}
+        response = requests.get(url, headers=headers)
+
+        if response.status_code == 200:
+            return response.json()
+        elif response.status_code == 401:
+            raise Exception("Unauthorized request")
+        else:
+            raise Exception(f"Error: Request failed with status code {response.status_code}")
+    except requests.RequestException as e:
+        return e
 
 
 def advanced_user_filter(url, min_followers: int, min_posts: int, min_following: int) -> list:

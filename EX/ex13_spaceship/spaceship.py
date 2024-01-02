@@ -165,9 +165,11 @@ class Spaceship:
         """
         if guardian_angel in self.dead_players and guardian_angel.role == "Guardian Angel"\
                 and crewmate_to_protect in self.crewmate_list:
-            for crewmate in self.crewmate_list:
-                crewmate.protected = False
-            crewmate_to_protect.protected = True
+            is_value_present = any(crewmate.protected == True for crewmate in self.crewmate_list)
+            if is_value_present:
+                for crewmate in self.crewmate_list:
+                    crewmate.protected = False
+                crewmate_to_protect.protected = True
 
     def kill_crewmate(self, impostor: Impostor, color):
         """Kill a crewmate.

@@ -35,7 +35,8 @@ class Crewmate:
 
         Upon finishing a task, remove one integer value from the crewmates tasks attribute.
         """
-        self.tasks -= 1
+        if self.tasks > 0:
+            self.tasks -= 1
 
 class Impostor:
     """

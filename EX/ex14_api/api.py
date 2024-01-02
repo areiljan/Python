@@ -2,6 +2,7 @@
 from typing import Any
 import requests
 import requests.exceptions
+from requests import RequestException, Response
 
 
 def get_request(url: str) -> int:
@@ -35,8 +36,7 @@ def get_request_error_handling(url: str) -> int | requests.RequestException:
         return e
 
 
-
-def post_request(url: str, data: dict) -> requests.Response:
+def post_request(url: str, data: dict) -> Response:
     """
     Send an HTTP POST request with JSON data to the specified URL.
 
@@ -51,8 +51,8 @@ def post_request(url: str, data: dict) -> requests.Response:
         if response.status_code != 200:
             raise Exception(f"Error: Request failed with status code {response.status_code}")
         return response
-    except requests.RequestException as e:
-        return e
+    except requests.RequestException as exception:
+        return exception
 
 
 def delete_request(url: str) -> int | requests.RequestException:
@@ -87,7 +87,7 @@ def stream_request(url: str) -> str:
     string_to_return = ""
     if r.encoding is None:
         r.encoding = 'utf-8'
-    for line in r.iter_lines(decode_unicode = True):
+    for line in r.iter_lines(decode_unicode=True):
         if line:
             string_to_return += str(line)
     return string_to_return
@@ -102,7 +102,6 @@ def get_authenticated_request(url: str, auth_token: str) -> Any | requests.Reque
     :param url: The URL to which the GET request will be sent.
     :param auth_token: The authentication token for the request.
     :return: Server's response json object or the exception object if an error occurs.
-
     """
     try:
         headers = {"Authorization": f"Bearer {auth_token}"}
@@ -131,14 +130,13 @@ def advanced_user_filter(url, min_followers: int, min_posts: int, min_following:
     :param min_following: Minimum following required.
     :return: List of user data dictionaries.
     """
-
     filtered_users = []
     response = requests.get(url)
     user_data = response.json()
     for user in user_data:
         if (user["followers"] >= min_followers and
-            user["posts"] >= min_posts and
-            user["following"] >= min_following):
+                user["posts"] >= min_posts and
+                user["following"] >= min_following):
             criteria = {'username': user['username'],
                         'full_name': user['full_name'],
                         'followers': user['followers'],
@@ -146,7 +144,6 @@ def advanced_user_filter(url, min_followers: int, min_posts: int, min_following:
                         'posts': user['posts']}
             filtered_users.append(criteria)
     return filtered_users
-
 
 
 def fetch_aggregate_data(url: str) -> dict:
@@ -201,3 +198,4 @@ if __name__ == '__main__':
         750000, 900, 2500))
     print(fetch_aggregate_data(
         "https://cs.taltech.ee/services/ex14/json-data"))
+

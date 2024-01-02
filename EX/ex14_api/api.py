@@ -84,7 +84,11 @@ def stream_request(url: str) -> str:
     :return: A string containing the streamed content.
     """
     r = requests.get(url, stream=True)
-    return str(r)
+    string_to_return = ""
+    for line in r.iter_lines(decode_unicode = True):
+        if line:
+            string_to_return += line
+    return string_to_return
 
 
 def get_authenticated_request(url: str, auth_token: str) -> Any | requests.RequestException:

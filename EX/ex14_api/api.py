@@ -32,8 +32,8 @@ def get_request_error_handling(url: str) -> int | requests.RequestException:
         response.raise_for_status()
 
         return response.status_code
-    except requests.RequestException:
-        return RequestException
+    except requests.RequestException as exception:
+        return exception
 
 
 def post_request(url: str, data: dict) -> Response:

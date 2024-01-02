@@ -89,7 +89,7 @@ def stream_request(url: str) -> str:
         r.encoding = 'utf-8'
     for line in r.iter_lines(decode_unicode = True):
         if line:
-            string_to_return += line
+            string_to_return += str(line)
     return string_to_return
 
 

@@ -141,6 +141,7 @@ class Spaceship:
                 self.dead_players.append(chosen_impostor[0])
             else:
                 self.crewmate_list.remove(sheriff)
+                sheriff.protected = False
                 self.dead_players.append(sheriff)
 
     def revive_crewmate(self, altruist: Crewmate, dead_crewmate: Crewmate):
@@ -165,7 +166,7 @@ class Spaceship:
         """
         if guardian_angel in self.dead_players and guardian_angel.role == "Guardian Angel"\
                 and crewmate_to_protect in self.crewmate_list:
-            is_value_present = any(crewmate.protected == True for crewmate in self.crewmate_list)
+            is_value_present = any(crewmate.protected is True for crewmate in self.crewmate_list)
             if is_value_present:
                 for crewmate in self.crewmate_list:
                     crewmate.protected = False

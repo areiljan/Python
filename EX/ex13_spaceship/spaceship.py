@@ -215,7 +215,7 @@ class Spaceship:
         Get the player role with the speciifed color. The roles are: Crewmate, Impostor, Guardian
         Angel, Sheriff, Altruist.
         """
-        color.capitalize()
+        color = color.capitalize()
         if color in self.player_color_list:
             chosen_impostor = list(filter(lambda impostor: impostor.color == color, self.impostor_list))
             chosen_crewmate = list(filter(lambda crewmate: crewmate.color == color, self.crewmate_list))

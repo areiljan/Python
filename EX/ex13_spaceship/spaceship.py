@@ -132,7 +132,7 @@ class Spaceship:
         The Sheriff can kill an impostor if he chooses right, if he does not choose right , he himself
         will die.
         """
-        if sheriff in self.crewmate_list:
+        if sheriff in self.crewmate_list and sheriff.role == "Sheriff":
             color = color.capitalize()
             chosen_impostor = list(filter(lambda impostor: impostor.color == color, self.impostor_list))
             if chosen_impostor:

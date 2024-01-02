@@ -83,7 +83,8 @@ def stream_request(url: str) -> str:
     :param url: The URL to send the GET request to.
     :return: A string containing the streamed content.
     """
-    pass
+    r = requests.get(url, stream=True)
+    return str(r)
 
 
 def get_authenticated_request(url: str, auth_token: str) -> Any | requests.RequestException:

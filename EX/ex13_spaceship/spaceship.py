@@ -132,15 +132,16 @@ class Spaceship:
         The Sheriff can kill an impostor if he chooses right, if he does not choose right , he himself
         will die.
         """
-        color = color.capitalize()
-        chosen_impostor = list(filter(lambda impostor: impostor.color == color, self.impostor_list))
-        if chosen_impostor:
-            self.player_color_list.remove(color)
-            self.impostor_list.remove(chosen_impostor[0])
-            self.dead_players.append(chosen_impostor)
-        else:
-            self.crewmate_list.remove(sheriff)
-            self.dead_players.append(sheriff)
+        if sheriff in self.crewmate_list:
+            color = color.capitalize()
+            chosen_impostor = list(filter(lambda impostor: impostor.color == color, self.impostor_list))
+            if chosen_impostor:
+                self.player_color_list.remove(color)
+                self.impostor_list.remove(chosen_impostor[0])
+                self.dead_players.append(chosen_impostor)
+            else:
+                self.crewmate_list.remove(sheriff)
+                self.dead_players.append(sheriff)
 
     def revive_crewmate(self, altruist: Crewmate, dead_crewmate: Crewmate):
         """Revive a crewmate.

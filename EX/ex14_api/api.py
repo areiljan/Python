@@ -48,12 +48,18 @@ def post_request(url: str, data: dict) -> requests.Response:
     """
     try:
         response = requests.post(url, json=data)
-        response.raise_for_status()
-
+        response.raise_for_status()  # Raises HTTPError for 4xx and 5xx status codes
         return response.json()
-    except requests.RequestException as e:
-        return e.status_code
-
+    except requests.exceptions.HTTPError as http_err:
+        return {
+            "error": f"HTTP error occurred: {http_err}",
+            "status_code": response.status_code if 'response' in locals() else None,
+            "response_text": response.text if 'response' in locals() else None
+        }
+    except requests.exceptions.RequestException as req_err:
+        return {
+            "error": f"Request exception occurred: {req_err}"
+        }
 
 
 def delete_request(url: str) -> int | requests.RequestException:

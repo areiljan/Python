@@ -41,7 +41,6 @@ class MovieData:
         self.ratings = pd.read_csv(ratings_filename)
         self.tags = pd.read_csv(tags_filename)
 
-
     def create_aggregate_movie_dataframe(self, nan_placeholder: str = '') -> None:
         """
         Create an aggregate dataframe from frames self.movies, self.ratings and self.tags.
@@ -66,7 +65,6 @@ class MovieData:
         movies_with_ratings = self.movies.merge(formatted_ratings, on='movieId', how='left')
         self.aggregate_movie_dataframe = movies_with_ratings.merge(new_tags, on='movieId', how='left')
         self.aggregate_movie_dataframe['tag'] = self.aggregate_movie_dataframe['tag'].fillna(nan_placeholder)
-
 
     def get_aggregate_movie_dataframe(self) -> pd.DataFrame | None:
         """
@@ -137,7 +135,7 @@ class MovieFilter:
         :param comp: string representation of the comparison operation
         :return: pandas DataFrame object of the filtration result
         """
-        comp_values = {'greater_than':'>', 'equals':'==', 'less_than':'<'}
+        comp_values = {'greater_than': '>', 'equals': '==', 'less_than': '<'}
         if rating is None or rating < 0 or comp not in comp_values.keys():
             raise ValueError
         if comp == 'less_than':
@@ -197,7 +195,7 @@ class MovieFilter:
             raise ValueError
         if year < 0:
             raise ValueError
-        pattern = r'\(' + str(year) + '\)'
+        pattern = r'\(' + str(year) + r'\)'
         filtered_data = self.movie_data[self.movie_data['title'].str.contains(pattern, case=False, regex=True)]
         return filtered_data
 
@@ -218,7 +216,6 @@ class MovieFilter:
         decent_movies = self.get_decent_movies()
         filtered_data = decent_movies[decent_movies['genres'].str.contains('Comedy', case=False)]
         return filtered_data
-
 
     def get_decent_children_movies(self) -> pd.DataFrame | None:
         """

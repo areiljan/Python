@@ -141,11 +141,11 @@ class MovieFilter:
         if rating is None or rating < 0 or comp not in comp_values.keys():
             raise ValueError
         if comp == 'less_than':
-            filtered_data = self.movie_data.query('rating < @rating')
+            filtered_data = self.movie_data[self.movie_data['rating'] < rating]
         elif comp == 'greater_than':
-            filtered_data = self.movie_data.query('rating > @rating')
+            filtered_data = self.movie_data[self.movie_data['rating'] > rating]
         else:
-            filtered_data = self.movie_data.query('rating == @rating')
+            filtered_data = self.movie_data[self.movie_data['rating'] == rating]
         return filtered_data
 
     def filter_movies_by_genre(self, genre: str) -> pd.DataFrame:
@@ -162,8 +162,7 @@ class MovieFilter:
         """
         if genre == '' or None:
             raise ValueError
-        genre.capitalize()
-        filtered_data = self.movie_data['genres'].contains(f"{genre}")
+        filtered_data = self.movie_data[self.movie_data['genre'].str.contains(genre, case=False)]
         return filtered_data
 
     def filter_movies_by_tag(self, tag: str) -> pd.DataFrame:

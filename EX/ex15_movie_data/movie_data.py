@@ -197,7 +197,7 @@ class MovieFilter:
             raise ValueError
         if year < 0:
             raise ValueError
-        filtered_data = self.movie_data[self.movie_data['title'].str.contains(str(year), case=False)]
+        filtered_data = self.movie_data[self.movie_data['title'].str.contains(str(year), case=False, regex=False)]
         return filtered_data
 
     def get_decent_movies(self) -> pd.DataFrame:

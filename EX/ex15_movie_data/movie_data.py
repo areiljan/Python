@@ -177,7 +177,10 @@ class MovieFilter:
         :param tag: string value tu filter by
         :return: pandas DataFrame object of the filtration result
         """
-        pass
+        if tag == '' or None:
+            raise ValueError
+        filtered_data = self.movie_data[self.movie_data['tag'].str.contains(tag, case=False)]
+        return filtered_data
 
     def filter_movies_by_year(self, year: int) -> pd.DataFrame:
         """
@@ -190,7 +193,10 @@ class MovieFilter:
         :param year: integer value of the year to filter by
         :return: pandas DataFrame object of the filtration result
         """
-        pass
+        if year < 0 or None:
+            raise ValueError
+        filtered_data = self.movie_data[self.movie_data['title'].str.contains(str(year), case=False)]
+        return filtered_data
 
     def get_decent_movies(self) -> pd.DataFrame:
         """
@@ -198,7 +204,7 @@ class MovieFilter:
 
         :return: pandas DataFrame object of the search result
         """
-        pass
+        return self.movie_data[self.movie_data['rating'] >= 3.0]
 
     def get_decent_comedy_movies(self) -> pd.DataFrame | None:
         """
@@ -206,7 +212,10 @@ class MovieFilter:
 
         :return: pandas DataFrame object of the search result
         """
-        pass
+        decent_movies = self.get_decent_movies()
+        filtered_data = decent_movies[decent_movies['genres'].str.contains('Comedy', case=False)]
+        return filtered_data
+
 
     def get_decent_children_movies(self) -> pd.DataFrame | None:
         """
@@ -214,7 +223,9 @@ class MovieFilter:
 
         :return: pandas DataFrame object of the search result
         """
-        pass
+        decent_movies = self.get_decent_movies()
+        filtered_data = decent_movies[decent_movies['genres'].str.contains('Children', case=False)]
+        return filtered_data
 
 
 if __name__ == '__main__':

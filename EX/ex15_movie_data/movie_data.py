@@ -193,7 +193,9 @@ class MovieFilter:
         :param year: integer value of the year to filter by
         :return: pandas DataFrame object of the filtration result
         """
-        if year < 0 or None:
+        if year is None:
+            raise ValueError
+        if year < 0:
             raise ValueError
         filtered_data = self.movie_data[self.movie_data['title'].str.contains(str(year), case=False)]
         return filtered_data

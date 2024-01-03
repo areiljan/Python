@@ -124,7 +124,7 @@ class MovieFilter:
         :param movie_data: pandas DataFrame object
         :return: None
         """
-        pass
+        self.movie_data = movie_data
 
     def filter_movies_by_rating_value(self, rating: float, comp: str) -> pd.DataFrame | None:
         """
@@ -137,7 +137,12 @@ class MovieFilter:
         :param comp: string representation of the comparison operation
         :return: pandas DataFrame object of the filtration result
         """
-        pass
+        comp_values = {'greater_than':'>', 'equals':'==', 'less_than':'<'}
+        if rating is None or rating < 0 or comp not in comp_values.keys():
+            raise ValueError
+        operator = comp_values.get(comp)
+        filtered_data = self.movie_data.query(f"rating {operator} {rating}")
+        return filtered_data
 
     def filter_movies_by_genre(self, genre: str) -> pd.DataFrame:
         """
@@ -151,7 +156,11 @@ class MovieFilter:
         :param genre: string value to filter by
         :return: pandas DataFrame object of the filtration result
         """
-        pass
+        if genre == '' or None:
+            raise ValueError
+        genre.capitalize()
+        filtered_data = self.movie_data['genres'].contains(f"{rating}")
+        return filtered_data
 
     def filter_movies_by_tag(self, tag: str) -> pd.DataFrame:
         """

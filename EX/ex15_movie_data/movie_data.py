@@ -162,7 +162,7 @@ class MovieFilter:
         """
         if genre == '' or None:
             raise ValueError
-        filtered_data = self.movie_data[self.movie_data['genre'].str.contains(genre, case=False)]
+        filtered_data = self.movie_data[self.movie_data['genres'].str.contains(genre, case=False)]
         return filtered_data
 
     def filter_movies_by_tag(self, tag: str) -> pd.DataFrame:

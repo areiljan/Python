@@ -141,7 +141,7 @@ class MovieFilter:
         if rating is None or rating < 0 or comp not in comp_values.keys():
             raise ValueError
         operator = comp_values.get(comp)
-        filtered_data = self.movie_data.query(f"rating {operator} {rating}")
+        filtered_data = self.movie_data.query(f'rating {operator} {rating}')
         return filtered_data
 
     def filter_movies_by_genre(self, genre: str) -> pd.DataFrame:
@@ -159,7 +159,7 @@ class MovieFilter:
         if genre == '' or None:
             raise ValueError
         genre.capitalize()
-        filtered_data = self.movie_data['genres'].contains(f"{rating}")
+        filtered_data = self.movie_data['genres'].contains(f"{genre}")
         return filtered_data
 
     def filter_movies_by_tag(self, tag: str) -> pd.DataFrame:

@@ -141,7 +141,7 @@ def rainbows(field: str, lower=False) -> int:
     if lower:
         field = field.lower()
 
-    if field < 7:
+    if len(field) < 7:
         return 0
     if 'rainbow' == field[:7] or 'wobniar' == field[:7]:
         return 1 + rainbows(field[1:], lower)

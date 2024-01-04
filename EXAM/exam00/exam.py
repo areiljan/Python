@@ -220,7 +220,7 @@ def get_top_student_with_credit_points(students: list, min_credit_points: int):
     students_with_grades = []
     best_student = None
     for student in students:
-        if student.credit_points > min_credit_points:
+        if student.credit_points >= min_credit_points:
             students_with_grades.append(student)
             if best_student is None or student.average_grade > best_student.average_grade:
                 best_student = student

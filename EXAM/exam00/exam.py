@@ -78,7 +78,7 @@ def get_names_from_results(results_string: str, min_result: int) -> list:
     for names_and_scores in names_and_scores_list:
         score = re.findall(pattern, names_and_scores)
         name = re.sub(pattern,'', names_and_scores)
-        if score != []:
+        if score != [] and name != '':
             if int(score[0]) >= min_result:
                 if name[-1] == ' ':
                     name = name[:-1]

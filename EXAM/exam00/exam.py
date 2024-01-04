@@ -174,7 +174,7 @@ def longest_substring(text: str) -> str:
 
     for char in text:
         if char.lower() in current.lower():
-            index = current.index(char)
+            index = current.lower().index(char.lower())
             current = current[index + 1:]
         current += char
 

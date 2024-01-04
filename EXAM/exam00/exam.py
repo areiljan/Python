@@ -201,7 +201,13 @@ def create_student(name: str, grades: list, credit_points: int) -> Student:
     Round the average grade up to three decimal places.
     If the list of grades is empty, the average grade will be 0.
     """
-    pass
+    if grades = []:
+        average_grade = 0
+    else:
+        average_grade = sum(grades) / len(grades)
+        round(average_grade, 3)
+
+    return Student(name, average_grade, credit_points)
 
 
 def get_top_student_with_credit_points(students: list, min_credit_points: int):
@@ -211,8 +217,14 @@ def get_top_student_with_credit_points(students: list, min_credit_points: int):
     If there are no students with enough credit points, return None.
     If several students have the same average score, return the first.
     """
-    pass
-
+    students_with_grades = []
+    for student in students:
+        if student.credit_points > min_credit_points:
+            students_with_grades.append(student)
+    if students_with_grades = []:
+        return None
+    sorted_students = sorted(students_with_grades, key=lambda student: student.average_grade, reverse=True)
+    return sorted_students[0]
 
 def add_result_to_student(student: Student, grades_count: int, new_grade: int, credit_points) -> Student:
     """
@@ -246,7 +258,9 @@ def add_result_to_student(student: Student, grades_count: int, new_grade: int, c
 
     Return the modified student object.
     """
-    pass
+    old_average = student.average_grade
+    new_average = ((old_average * grades_count) + new_grade) / (grades_count + 1)
+    return new_average
 
 
 def get_ordered_students(students: list) -> list:

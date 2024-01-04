@@ -35,9 +35,16 @@ def close_far(a: int, b: int, c: int) -> bool:
     close_far(1, 2, 3) => False
     close_far(4, 1, 3) => True
     """
-    difference_of_ab = a - b
-    difference_of_ac = a - c
-    if difference_of_ab <= 1 and difference_of_ac > 1 or difference_of_ab > 1 and difference_of_ac <= 1:
+    if abs(c - a) <= 1:
+        value_c = "close"
+    elif abs(c - a) >= 2 and abs(c - b) >= 2:
+        value_c = "far"
+    if abs(b - a) <= 1:
+        value_b = "close"
+    elif abs(b - a) >= 2 and abs(c - b) >= 2:
+        value_b = "far"
+
+    if value_c is not value_b:
         return True
     else:
         return False

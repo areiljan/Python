@@ -177,6 +177,8 @@ def longest_substring(text: str) -> str:
             if len(substring) > len(longest):
                 longest = substring
         else:
+            if len(substring) > len(longest):
+                longest = substring
             substring = ''
             if text[i - 1].lower() not in text[i:].lower():
                 substring = text[i - 1]

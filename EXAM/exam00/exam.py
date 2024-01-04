@@ -81,7 +81,7 @@ def get_names_from_results(results_string: str, min_result: int) -> list:
         if score != []:
             if int(score[0]) >= min_result:
                 if name[-1] == ' ':
-                    name = name[:-2]
+                    name = name[:-1]
                 new_list.append(name)
     return new_list
 

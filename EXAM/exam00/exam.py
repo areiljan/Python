@@ -170,20 +170,21 @@ def longest_substring(text: str) -> str:
     """
     substring = ""
     longest = ""
-    for i in range(len(text)):
-        count_of_character = substring.lower().count(text[i].lower())
-        if count_of_character < 1:
-            substring += text[i]
-            if len(substring) > len(longest):
-                longest = substring
-        else:
-            if len(substring) > len(longest):
-                longest = substring
-            substring = ''
-            if text[i - 1].lower() not in text[i:].lower():
-                substring = text[i - 1]
-            substring += text[i]
-    return longest
+    for j in range(len(text)):
+        for i in range(len(text[j:])):
+            count_of_character = substring.lower().count(text[i].lower())
+            if count_of_character < 1:
+                substring += text[i]
+                if len(substring) > len(longest):
+                    longest = substring
+            else:
+                if len(substring) > len(longest):
+                    longest = substring
+                substring = ''
+                if text[i - 1].lower() not in text[i:].lower():
+                    substring = text[i - 1]
+                substring += text[i]
+        return longest
 
 
 class Student:

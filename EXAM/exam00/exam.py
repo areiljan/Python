@@ -180,8 +180,7 @@ def longest_substring(text: str) -> str:
             substring = ''
             if text[i - 1].lower() not in text[i:].lower():
                 substring = text[i - 1]
-            else:
-                substring += text[i]
+            substring += text[i]
     return longest
 
 

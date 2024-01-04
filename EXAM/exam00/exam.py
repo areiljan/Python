@@ -37,7 +37,7 @@ def close_far(a: int, b: int, c: int) -> bool:
     """
     difference_of_ab = a - b
     difference_of_ac = a - c
-    if difference_of_ab <= 1 or difference_of_ac <= 1:
+    if difference_of_ab <= 1 or difference_of_ac > 1:
         return True
 
 def get_names_from_results(results_string: str, min_result: int) -> list:

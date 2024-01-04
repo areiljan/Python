@@ -184,7 +184,7 @@ def longest_substring(text: str) -> str:
                 if text[i - 1].lower() not in text[i:].lower():
                     substring = text[i - 1]
                 substring += text[i]
-        return longest
+    return longest
 
 
 class Student:

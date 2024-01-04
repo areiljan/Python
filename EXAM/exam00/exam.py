@@ -168,7 +168,13 @@ def longest_substring(text: str) -> str:
     abBcd => Bcd
     '' -> ''
     """
-    pass
+    longest = ""
+    for i in range(len(text)):
+        for j in range(i, len(text)):
+            substring = text[i:j + 1]
+            if len(substring) > len(longest):
+                longest = substring
+    return longest
 
 
 class Student:

@@ -50,8 +50,8 @@ def close_far(a: int, b: int, c: int) -> bool:
     if value_b and value_c:
         if value_c is not value_b:
             return True
-        else:
-            return False
+    else:
+        return False
 
 def get_names_from_results(results_string: str, min_result: int) -> list:
     """

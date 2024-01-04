@@ -262,8 +262,9 @@ def add_result_to_student(student: Student, grades_count: int, new_grade: int, c
     Return the modified student object.
     """
     old_average = student.average_grade
-    new_average = ((old_average * grades_count) + new_grade) / (grades_count + 1)
-    return new_average
+    new_average = round(((old_average * grades_count) + new_grade) / (grades_count + 1), 3)
+    student.average_grade = new_average
+    student.credit_points += credit_points
 
 
 def get_ordered_students(students: list) -> list:

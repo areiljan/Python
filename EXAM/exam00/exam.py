@@ -40,7 +40,7 @@ def close_far(a: int, b: int, c: int) -> bool:
     if difference_of_ab <= 1 and difference_of_ac > 1 or difference_of_ab > 1 and difference_of_ac <= 1:
         return True
     else:
-        return None
+        return False
 
 def get_names_from_results(results_string: str, min_result: int) -> list:
     """

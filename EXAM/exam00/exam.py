@@ -105,6 +105,7 @@ def tic_tac_toe(game: list) -> int:
     :param game
     :return: winning player id
     """
+    winner = 0
     for i in range(3):
         if game[1][i] == game[2][i] == game[3][i]:
             if game[1][i] == 1 or game[1][i] == 2:

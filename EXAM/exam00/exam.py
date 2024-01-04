@@ -139,9 +139,12 @@ def rainbows(field: str, lower=False) -> int:
     :return: number of rainbows in the string
     """
     field = field.lower()
+    if field = '':
+        return 0
     if 'rainbow' in field[:7] or 'rainbow' in field[-7::]:
         return 1 + rainbows(field[1:-1])
     return rainbows(field[1:-1])
+
 
 
 

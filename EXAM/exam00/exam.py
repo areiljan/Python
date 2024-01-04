@@ -35,6 +35,9 @@ def close_far(a: int, b: int, c: int) -> bool:
     close_far(1, 2, 3) => False
     close_far(4, 1, 3) => True
     """
+    value_b = None
+    value_c = None
+
     if abs(c - a) <= 1:
         value_c = "close"
     elif abs(c - a) >= 2 and abs(c - b) >= 2:
@@ -44,10 +47,11 @@ def close_far(a: int, b: int, c: int) -> bool:
     elif abs(b - a) >= 2 and abs(c - b) >= 2:
         value_b = "far"
 
-    if value_c is not value_b:
-        return True
-    else:
-        return False
+    if value_b and value_c:
+        if value_c is not value_b:
+            return True
+        else:
+            return False
 
 def get_names_from_results(results_string: str, min_result: int) -> list:
     """

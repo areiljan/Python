@@ -108,10 +108,10 @@ def tic_tac_toe(game: list) -> int:
     winner = 0
     if len(game) == 3:
         for i in range(3):
-            if game[1][i] == game[2][i] == game[3][i]:
+            if game[0][i] == game[1][i] == game[2][i]:
                 if game[1][i] == 1 or game[1][i] == 2:
                     winner = game[1][i]
-            if game[i][1] == game[i][2] == game[i][3]:
+            if game[i][0] == game[i][1] == game[i][2]:
                 if game[i][1] == 1 or game[i][1] == 2:
                     winner = game[i][1]
 

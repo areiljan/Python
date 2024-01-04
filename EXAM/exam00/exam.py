@@ -138,7 +138,7 @@ def rainbows(field: str, lower=False) -> int:
     :param field: string to search rainbows from
     :return: number of rainbows in the string
     """
-    field = field.lower()
+    field = lower(field)
     if field == '':
         return 0
     if 'rainbow' == field[:7] or 'wobniar' == field[:7]:

@@ -170,10 +170,10 @@ def longest_substring(text: str) -> str:
     """
     longest = ""
     current = ""
-    text = text.lower()
+
 
     for char in text:
-        if char in current:
+        if char.lower() in current.lower():
             index = current.index(char)
             current = current[index + 1:]
         current += char

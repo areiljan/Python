@@ -145,7 +145,7 @@ def rainbows(field: str, lower=False) -> int:
         return 0
     if 'rainbow' == field[:7] or 'wobniar' == field[:7]:
         return 1 + rainbows(field[7:], lower)
-    return rainbows(field[7:], lower)
+    return rainbows(field[1:], lower)
 
 
 

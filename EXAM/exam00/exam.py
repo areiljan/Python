@@ -168,6 +168,7 @@ def longest_substring(text: str) -> str:
     abBcd => Bcd
     '' -> ''
     """
+    longest = ""
     for j in range(len(text)):
         substring = ""
         for i in range(len(text[j:])):

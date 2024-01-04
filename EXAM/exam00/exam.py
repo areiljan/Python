@@ -73,7 +73,6 @@ def get_names_from_results(results_string: str, min_result: int) -> list:
     """
     names_and_scores_list = results_string.split(',')
     pattern = r'\d+$'
-    new_pattern = r' \d+$'
 
     new_list = []
     for names_and_scores in names_and_scores_list:
@@ -81,6 +80,8 @@ def get_names_from_results(results_string: str, min_result: int) -> list:
         name = re.sub(pattern,'', names_and_scores)
         if score != []:
             if int(score[0]) >= min_result:
+                if name[-1] == ' ':
+                    name = name[:-2]
                 new_list.append(name)
     return new_list
 

@@ -75,7 +75,7 @@ def get_names_from_results(results_string: str, min_result: int) -> list:
     new_list = []
     for names_and_scores in names_and_scores_list:
         name, score = names_and_scores.split()
-        if score <= min_result:
+        if int(score) >= min_result:
             new_list.append(name)
     return new_list
 

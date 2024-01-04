@@ -105,7 +105,20 @@ def tic_tac_toe(game: list) -> int:
     :param game
     :return: winning player id
     """
-    pass
+    for i in range(3):
+        if game[1][i] == game[2][i] == game[3][i]:
+            if game[1][i] == 1 or game[1][i] == 2:
+                winner = game[1][i]
+        if game[i][1] == game[i][2] == game[i][3]:
+            if game[i][1] == 1 or game[i][1] == 2:
+                winner = game[i][1]
+
+    if game[0][0] == game[1][1] == game[2][2] != 0:
+        winner = game[0][0]
+    if game[0][2] == game[1][1] == game[2][0] != 0:
+        winner = game[0][2]
+    return winner
+
 
 
 def rainbows(field: str, lower=False) -> int:

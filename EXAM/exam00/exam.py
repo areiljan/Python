@@ -171,7 +171,7 @@ def longest_substring(text: str) -> str:
     substring = ""
     longest = ""
     for i in range(len(text)):
-        count_of_character = substring.count(text[i].lower())
+        count_of_character = substring.lower().count(text[i].lower())
         if count_of_character < 1:
             substring += text[i]
             if len(substring) > len(longest):

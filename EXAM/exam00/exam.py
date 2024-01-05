@@ -281,7 +281,10 @@ class Room:
 
     def __init__(self, number: int, price: int):
         """Initialize room."""
-        pass
+        self.number = number
+        self.price = price
+        self.features = []
+        self.booked = False
 
     def add_feature(self, feature: str) -> bool:
         """
@@ -292,19 +295,22 @@ class Room:
         - the room is booked.
         Otherwise, add the feature to the room and return True
         """
-        pass
+        if feature not in self.features and not self.booked:
+            self.features.append(feature)
+            return True
+        return False
 
     def get_features(self) -> list:
         """Return all the features of the room."""
-        pass
+        return self.features
 
     def get_price(self) -> int:
         """Return the price."""
-        pass
+        return self.price
 
     def get_number(self) -> int:
         """Return the room number."""
-        pass
+        return self.number
 
 
 class Hotel:
@@ -312,7 +318,7 @@ class Hotel:
 
     def __init__(self):
         """Initialize hotel."""
-        pass
+        self.rooms = []
 
     def add_room(self, room: Room) -> bool:
         """
@@ -321,7 +327,14 @@ class Hotel:
         If a room with the given number already exists, do not add a room and return False.
         Otherwise add the room to hotel and return True.
         """
-        pass
+        number_list = []
+        for r in self.rooms:
+            number_list.append(r.number)
+        if room.number not in number_list:
+            self.rooms.append(room)
+            return True
+        return False
+
 
     def book_room(self, required_features: list) -> Optional[Room]:
         """
@@ -331,7 +344,20 @@ class Hotel:
         If there are several with the same amount of matching features, return the one with the smallest room number.
         If there is no available rooms, return None
         """
-        pass
+        available_rooms = []
+
+        for room in self.rooms:
+            if room.booked == False:
+                available_rooms.append(room)
+
+        if not available_rooms:
+            return None
+
+        available_rooms.sort(key=lambda room: (len(room.features.intersection(required_features)), room.number))
+
+        available_rooms[0].booked = True
+        return available_rooms[0]
+
 
     def get_available_rooms(self) -> list:
         """Return a list of available (not booked) rooms."""

@@ -283,7 +283,7 @@ class Room:
         """Initialize room."""
         self.number = number
         self.price = price
-        self.features = []
+        self.features = set()
         self.booked = False
 
     def add_feature(self, feature: str) -> bool:
@@ -296,7 +296,7 @@ class Room:
         Otherwise, add the feature to the room and return True
         """
         if feature not in self.features and not self.booked:
-            self.features.append(feature)
+            self.features.add(feature)
             return True
         return False
 
@@ -344,32 +344,44 @@ class Hotel:
         If there are several with the same amount of matching features, return the one with the smallest room number.
         If there is no available rooms, return None
         """
-        available_rooms = []
+        best_match = None
+        max_matching_features = 0
 
         for room in self.rooms:
-            if room.booked == False:
-                available_rooms.append(room)
+            if not room.booked:
+                matching_features = len(room.features.intersection(required_features))
+                if matching_features > max_matching_features or best_match is None:
+                    max_matching_features = matching_features
+                    best_match = room
+                elif matching_features == max_matching_features and (
+                        room.number < best_match.number or best_match is None):
+                    best_match = room
 
-        if not available_rooms:
-            return None
+        if best_match:
+            best_match.booked = True
 
-        available_rooms.sort(key=lambda room: (len(room.features.intersection(required_features)), room.number))
-
-        available_rooms[0].booked = True
-        return available_rooms[0]
+        return best_match
 
 
     def get_available_rooms(self) -> list:
         """Return a list of available (not booked) rooms."""
-        pass
+        available_rooms = []
+        for room in self.rooms:
+            if not room.booked:
+                available_rooms.append(room)
+        return available_rooms
 
     def get_rooms(self) -> list:
         """Return all the rooms (both booked and available)."""
-        pass
+        return self.rooms
 
     def get_booked_rooms(self) -> list:
         """Return all the booked rooms."""
-        pass
+        booked_rooms = []
+        for room in self.rooms:
+            if room.booked:
+                booked_rooms.append(room)
+        return booked_rooms
 
     def get_feature_profits(self) -> dict:
         """
@@ -389,7 +401,15 @@ class Hotel:
         'd': 200
         }
         """
-        pass
+        booked_rooms = self.get_booked_rooms()
+        features_and_prices = {}
+        for room in booked_rooms:
+            for feature in room.features:
+                if feature not in features_and_prices:
+                    features_and_prices[feature] = room.price
+                else:
+                    features_and_prices[feature] += room.price
+        return features_and_prices
 
     def get_most_profitable_feature(self) -> Optional[str]:
         """

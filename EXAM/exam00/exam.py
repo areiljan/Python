@@ -302,7 +302,7 @@ class Room:
 
     def get_features(self) -> list:
         """Return all the features of the room."""
-        return self.features
+        return list(self.features)
 
     def get_price(self) -> int:
         """Return the price."""

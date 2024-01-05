@@ -23,6 +23,7 @@ def find_capital_letters(s: str) -> str:
             string_to_return += letter
     return string_to_return
 
+
 def close_far(a: int, b: int, c: int) -> bool:
     """
     Return if one value is "close" and other is "far".
@@ -53,6 +54,7 @@ def close_far(a: int, b: int, c: int) -> bool:
     else:
         return False
 
+
 def get_names_from_results(results_string: str, min_result: int) -> list:
     """
     Given a string of names and scores, return a list of names where the score is higher than or equal to min_result.
@@ -77,13 +79,14 @@ def get_names_from_results(results_string: str, min_result: int) -> list:
     new_list = []
     for names_and_scores in names_and_scores_list:
         score = re.findall(pattern, names_and_scores)
-        name = re.sub(pattern,'', names_and_scores)
+        name = re.sub(pattern, '', names_and_scores)
         if score != [] and name != '':
             if int(score[0]) >= min_result:
                 if name[-1] == ' ':
                     name = name[:-1]
                 new_list.append(name)
     return new_list
+
 
 def tic_tac_toe(game: list) -> int:
     """
@@ -122,7 +125,6 @@ def tic_tac_toe(game: list) -> int:
     return winner
 
 
-
 def rainbows(field: str, lower=False) -> int:
     """
     Count rainbows.
@@ -138,7 +140,6 @@ def rainbows(field: str, lower=False) -> int:
     :param field: string to search rainbows from
     :return: number of rainbows in the string
     """
-
     field = field.lower()
 
     if len(field) < 7:
@@ -146,8 +147,6 @@ def rainbows(field: str, lower=False) -> int:
     if 'rainbow' == field[:7] or 'wobniar' == field[:7]:
         return 1 + rainbows(field[7:], lower)
     return rainbows(field[1:], lower)
-
-
 
 
 def longest_substring(text: str) -> str:
@@ -170,7 +169,6 @@ def longest_substring(text: str) -> str:
     """
     longest = ""
     current = ""
-
 
     for char in text:
         if char.lower() in current.lower():
@@ -227,6 +225,7 @@ def get_top_student_with_credit_points(students: list, min_credit_points: int):
     if students_with_grades == []:
         return None
     return best_student
+
 
 def add_result_to_student(student: Student, grades_count: int, new_grade: int, credit_points) -> Student:
     """
@@ -335,7 +334,6 @@ class Hotel:
             return True
         return False
 
-
     def book_room(self, required_features: list) -> Optional[Room]:
         """
         Book an available room which has the most matching features.
@@ -361,7 +359,6 @@ class Hotel:
             best_match.booked = True
 
         return best_match
-
 
     def get_available_rooms(self) -> list:
         """Return a list of available (not booked) rooms."""

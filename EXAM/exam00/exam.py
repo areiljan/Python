@@ -275,6 +275,7 @@ def get_ordered_students(students: list) -> list:
     sorted_students = sorted(sorted_students, key=lambda student: (-student.credit_points, -student.average_grade))
     return sorted_students
 
+
 class Room:
     """Room."""
 

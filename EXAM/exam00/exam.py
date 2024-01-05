@@ -402,6 +402,8 @@ class Hotel:
         }
         """
         booked_rooms = self.get_booked_rooms()
+        if not booked_rooms:
+            return None
         features_and_prices = {}
         for room in booked_rooms:
             for feature in room.features:
@@ -420,7 +422,12 @@ class Hotel:
         If there are several with the same max value, return the feature which is alphabetically lower (a < z)
         If there are no features booked, return None.
         """
-        pass
+        features_and_prices = self.get_feature_profits()
+        if not features_and_prices:
+            return None
+        sorted_rooms = sorted(features_and_prices.items(), key=lambda pair: pair[1])
+        sorted_rooms = sorted(sorted_rooms, key=lambda pair: -pair[1])
+        return sorted_rooms[1]
 
 
 if __name__ == '__main__':

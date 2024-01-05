@@ -425,8 +425,7 @@ class Hotel:
         features_and_prices = self.get_feature_profits()
         if not features_and_prices:
             return None
-        sorted_rooms = sorted(features_and_prices.items(), key=lambda pair: pair[1])
-        sorted_rooms = sorted(sorted_rooms, key=lambda pair: -pair[1])
+        sorted_rooms = sorted(features_and_prices.items(), key=lambda pair: (-pair[1], pair[0]), reverse=True)
         return sorted_rooms[0][0]
 
 
@@ -438,6 +437,7 @@ if __name__ == '__main__':
     room2 = Room(2, 200)
     room2.add_feature("tv")
     room2.add_feature("sauna")
+    room2.add_feature("bed")
     hotel.add_room(room1)
     hotel.add_room(room2)
     # TODO: try to add room with existing number, try to add existing feature to room
@@ -453,7 +453,7 @@ if __name__ == '__main__':
 
     assert hotel.get_feature_profits() == {
         'tv': 300,
-        'bed': 100,
+        'bed': 300,
         'sauna': 200
     }
     assert hotel.get_most_profitable_feature() == 'tv'

@@ -425,7 +425,7 @@ class Hotel:
         features_and_prices = self.get_feature_profits()
         if not features_and_prices:
             return None
-        sorted_rooms = sorted(features_and_prices.items(), key=lambda pair: (-pair[1], pair[0]), reverse=True)
+        sorted_rooms = sorted(features_and_prices.items(), key=lambda pair: (-pair[1], pair[0]))
         return sorted_rooms[0][0]
 
 

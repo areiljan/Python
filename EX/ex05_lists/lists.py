@@ -117,3 +117,12 @@ print(phone_models('Google Pro Pixel2,Honor Magic5,Google Pixel2,IPhone 12,IPhon
 print(list_of_phones(""))
 print(phone_models('one,one,one,one'))
 print(search_by_model('Google Pro Pixel2,Honor Magic5,Google Pixel2,IPhone 12,IPhone XS,IPhone 11', 'Pixel2'))
+
+
+a = {'a': 1, 'baz': 2, 'c': 3}
+del a["baz"]
+
+print(a)
+
+d = {'foo': 100, 'bar': 200, 'baz': 300}
+print(d['bar':'baz'])

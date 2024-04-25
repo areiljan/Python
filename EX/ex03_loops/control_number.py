@@ -24,7 +24,7 @@ def control_number(encrypted_string: str) -> bool:
             sum += 1
         elif a.isupper():
             sum += 2
-        elif a == "?" or a == "!" or a == "@" or a == "#":
+        elif a in "#?!@":
             sum += 5
         else:
             continue
@@ -38,7 +38,7 @@ def control_number(encrypted_string: str) -> bool:
         return (True)
     else:
         return (False)
-
+    #.endsWith
 
 if __name__ == '__main__':
     print(control_number("mE0W5"))  # True

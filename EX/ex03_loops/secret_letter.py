@@ -24,14 +24,8 @@ def secret_letter(letter: str) -> bool:
             lowercaseletters += 1
         elif a.isnumeric():
             sumofdigits += int(a)
-        else:
-            continue
 
-    if uppercaseletters > lowercaseletters and sumofdigits <= uppercaseletters and sumofdigits >= lowercaseletters:
-        return True
-    else:
-        return False
-
+    return uppercaseletters > lowercaseletters and uppercaseletters >= sumofdigits >= lowercaseletters
 
 if __name__ == '__main__':
     print(secret_letter("sOMEteSTLETTer8"))  # True

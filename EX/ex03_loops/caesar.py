@@ -1,6 +1,6 @@
 """Caesar cipher."""
 
-
+import math
 def encode(message: str, shift: int) -> str:
     """
     Encode a message using a Caesar cipher.
@@ -44,3 +44,6 @@ if __name__ == '__main__':
     print(encode("don't change", 0))  # -> don't change
     print(encode('the quick brown fox jumps over the lazy dog.', 7))  # -> aol xbpjr iyvdu mve qbtwz vcly aol shgf kvn.
     print(encode('rendime saarele sauna', 100))
+
+list = ["peep", "tiit", "jaanus"]
+print(list[1:])

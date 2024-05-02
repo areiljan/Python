@@ -5,7 +5,7 @@ import PiBot
 
 
 class Robot:
-    """The robot class."""
+    """The robot class2."""
 
     def __init__(self):
         """Class initialization."""
